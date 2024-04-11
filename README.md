@@ -11,17 +11,22 @@ Please see the tutorials for more information.
     CXX=<compiler icpc or g++> make
     ```
 
+    To print additional debug output during the execution, compile with `-DDEBUG`:
+   ```bash
+   CXX=<compiler icpc or g++> make EXTRA_FLAGS=-DDEBUG
+   ```
+
    To compile with LIKWID use:
    ```bash
    LIKWID=on CXX=<compiler icpc or g++> make
    ```
 
-2)  Run tests by running
+1)  Run tests by running
     ```bash
     ./test
     ```
 
-3)  Run performance tests by running
+2)  Run performance tests by running
     ```bash
     ./perf <grid size y> <grid size x>
     ```
