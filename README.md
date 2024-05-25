@@ -1,7 +1,7 @@
 # Programming Techniques for Supercomputers - CAM project
 
 ## Background: Modelling 2D steady-state heat equation
-This code project for the 10 ECTS PTfS module solves a linear system of equations to find a steady-state temperature distributen on a rectangular plate using the Conjugate Gradient (CG) and Preconditioned Conjugate Gradient (PCG) with symmetric Gauss-Seidel preconditioning methods.
+This code project for the 10 ECTS PTfS module solves a linear system of equations to find a steady-state temperature distribution on a rectangular plate using the Conjugate Gradient (CG) and Preconditioned Conjugate Gradient (PCG) with symmetric Gauss-Seidel preconditioning methods.
 
 Please see the tutorials for more information.
 
