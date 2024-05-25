@@ -8,17 +8,17 @@ Please see the tutorials for more information.
 ## Usage
 1) Compile program by calling
     ```bash
-    CXX=<compiler icpc or g++> make
+    CXX=<compiler icpx or g++> make
     ```
 
     To print additional debug output during the execution, compile with `-DDEBUG`:
    ```bash
-   CXX=<compiler icpc or g++> make EXTRA_FLAGS=-DDEBUG
+   CXX=<compiler icpx or g++> make EXTRA_FLAGS=-DDEBUG
    ```
 
    To compile with LIKWID use:
    ```bash
-   LIKWID=on CXX=<compiler icpc or g++> make
+   LIKWID=on CXX=<compiler icpx or g++> make
    ```
 
 1)  Run tests by running
