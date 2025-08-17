@@ -25,11 +25,12 @@ Grid::Grid(int columns_,int rows_):columns(columns_+2*HALO),rows(rows_+2*HALO)
 
     //always pad with halo; to support Dirichlet
     arrayPtr = new double[ rows*columns];
-    #pragma omp parallel for
-    for (int i =0; i<rows*columns;i++)
-    {
-        arrayPtr[i] = 0.0;
-    }
+    // #pragma omp parallel for simd
+    // for (int i =0; i<rows*columns;i++)
+    // {
+    //     arrayPtr[i] = 0.0;
+    // }
+    std::fill(arrayPtr, arrayPtr + rows * columns, 0.0);
 }
 
 Grid::Grid(int columns_,int rows_, BC_TYPE *ghost_):columns(columns_+2*HALO),rows(rows_+2*HALO)
@@ -39,11 +40,12 @@ Grid::Grid(int columns_,int rows_, BC_TYPE *ghost_):columns(columns_+2*HALO),row
     }
 
     arrayPtr = new double[rows*columns];
-    #pragma omp parallel for
-    for (int i =0; i<rows*columns;i++)
-    {
-        arrayPtr[i] = 0.0;
-    }
+    // #pragma omp parallel for simd
+    // for (int i =0; i<rows*columns;i++)
+    // {
+    //     arrayPtr[i] = 0.0;
+    // }
+    std::fill(arrayPtr, arrayPtr + rows * columns, 0.0);
 }
 
 Grid::Grid(const Grid &s)
@@ -61,7 +63,7 @@ Grid::Grid(const Grid &s)
         int totGrids = rows * columns;
         // performing a deep-copy
         arrayPtr = new double[totGrids];
-        #pragma omp parallel for
+        #pragma omp parallel for simd
         for(int i=0; i<totGrids;++i)
         { 
             arrayPtr[i] = s.arrayPtr[i];
@@ -101,7 +103,6 @@ bool Grid::writeFile(const std::string& name, bool halo)
         file<<"\n";
 
         int shift = halo?0:HALO;
-
         for (int i = shift; i<numGrids_y(true)-shift ; ++i ){
             for ( int j = shift ; j<numGrids_x(true)-shift; ++j ){
                 file<<(*this)(i,j)<<"\t";
@@ -184,6 +185,7 @@ void Grid::fill(double val, bool halo)
     int shift = halo?0:HALO;
     #pragma omp parallel for collapse(2)
     for(int j=shift; j<numGrids_y(true)-shift; ++j) {
+        #pragma omp simd
         for(int i=shift; i<numGrids_x(true)-shift; ++i) {
             (*this)(j,i) = val;
         }
@@ -195,6 +197,7 @@ void Grid::rand(bool halo, unsigned int seed)
     int shift = halo?0:HALO;
     #pragma omp parallel for collapse(2)
     for(int j=shift; j<numGrids_y(true)-shift; ++j) {
+        #pragma omp simd
         for(int i=shift; i<numGrids_x(true)-shift; ++i) {
             (*this)(j,i) = rand_r(&seed)/static_cast<double>(RAND_MAX);
         }
@@ -207,6 +210,7 @@ void Grid::fill(std::function<double(int,int)> func, bool halo)
     int shift = halo?0:HALO;
     #pragma omp parallel for collapse(2)
     for(int j=shift; j<numGrids_y(true)-shift; ++j) {
+        #pragma omp simd
         for(int i=shift; i<numGrids_x(true)-shift; ++i) {
             (*this)(j,i) = func(i,j);
         }
