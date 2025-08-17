@@ -159,7 +159,7 @@ void PDE::GSPreCon(Grid *rhs, Grid *x)
 
     // forward substitution
     int nthreads, tid, istart, iend, jj;
-#pragma omp parallel private(nthreads, tid, istart, iend, jj)
+    #pragma omp parallel private(nthreads, tid, istart, iend, jj)
     {
         nthreads = omp_get_num_threads();
         tid = omp_get_thread_num();
