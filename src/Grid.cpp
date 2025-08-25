@@ -25,12 +25,12 @@ Grid::Grid(int columns_,int rows_):columns(columns_+2*HALO),rows(rows_+2*HALO)
 
     //always pad with halo; to support Dirichlet
     arrayPtr = new double[ rows*columns];
-    // #pragma omp parallel for simd
-    // for (int i =0; i<rows*columns;i++)
-    // {
-    //     arrayPtr[i] = 0.0;
-    // }
-    std::fill(arrayPtr, arrayPtr + rows * columns, 0.0);
+    #pragma omp parallel for simd
+    for (int i =0; i<rows*columns;i++)
+    {
+        arrayPtr[i] = 0.0;
+    }
+
 }
 
 Grid::Grid(int columns_,int rows_, BC_TYPE *ghost_):columns(columns_+2*HALO),rows(rows_+2*HALO)
@@ -40,12 +40,12 @@ Grid::Grid(int columns_,int rows_, BC_TYPE *ghost_):columns(columns_+2*HALO),row
     }
 
     arrayPtr = new double[rows*columns];
-    // #pragma omp parallel for simd
-    // for (int i =0; i<rows*columns;i++)
-    // {
-    //     arrayPtr[i] = 0.0;
-    // }
-    std::fill(arrayPtr, arrayPtr + rows * columns, 0.0);
+    #pragma omp parallel for simd
+    for (int i =0; i<rows*columns;i++)
+    {
+        arrayPtr[i] = 0.0;
+    }
+
 }
 
 Grid::Grid(const Grid &s)
