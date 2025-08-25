@@ -157,51 +157,96 @@ void PDE::GSPreCon(Grid *rhs, Grid *x)
     LIKWID_MARKER_START("GS_PRE_CON");
 #endif
 
-    // forward substitution
-    int nthreads, tid, istart, iend, jj;
-#pragma omp parallel private(nthreads, tid, istart, iend, jj)
-    {
-        nthreads = omp_get_num_threads();
-        tid = omp_get_thread_num();
-        istart = (xSize - 2) / nthreads * tid + 1;
-        iend = (tid==nthreads-1 ? xSize-2 : istart + (xSize - 2) / nthreads - 1);
-
-        for (int j = 1; j < ySize - 1 + nthreads -1; ++j)
+    // Choose parallelization direction based on grid shape
+    if (xSize >= ySize) {
+        // Parallelize over x (original)
+        int nthreads, tid, istart, iend, jj;
+        #pragma omp parallel private(nthreads, tid, istart, iend, jj)
         {
-            jj = j - tid;
-            if (jj >= 1 && jj < ySize - 1)
-            {
+            nthreads = omp_get_num_threads();
+            tid = omp_get_thread_num();
+            istart = (xSize - 2) / nthreads * tid + 1;
+            iend = (tid==nthreads-1 ? xSize-2 : istart + (xSize - 2) / nthreads - 1);
 
-                for (int i = istart; i <= iend; ++i)
+            for (int j = 1; j < ySize - 1 + nthreads -1; ++j)
+            {
+                jj = j - tid;
+                if (jj >= 1 && jj < ySize - 1)
                 {
-                    (*x)(jj, i) = w_c * ((*rhs)(jj, i) + (w_y * (*x)(jj - 1, i) + w_x * (*x)(jj, i - 1)));
+                    for (int i = istart; i <= iend; ++i)
+                    {
+                        (*x)(jj, i) = w_c * ((*rhs)(jj, i) + (w_y * (*x)(jj - 1, i) + w_x * (*x)(jj, i - 1)));
+                    }
                 }
+                #pragma omp barrier
             }
-            #pragma omp barrier
+        }
+
+        // backward substitution
+        #pragma omp parallel private(nthreads, tid, istart, iend, jj)
+        {
+            nthreads = omp_get_num_threads();
+            tid = omp_get_thread_num();
+            istart = (xSize - 2) / nthreads * tid + 1;
+            iend = (tid==nthreads-1 ? xSize-2 : istart + (xSize - 2) / nthreads - 1);
+
+            for (int j = ySize - 1 + nthreads -1; j > 0; --j)
+            {
+                jj = j - tid;
+                if (jj >= 1 && jj < ySize - 1){
+                    for (int i = iend; i >= istart; --i)
+                    {
+                        (*x)(jj, i) = (*x)(jj, i) + w_c * (w_y * (*x)(jj + 1, i) + w_x * (*x)(jj, i + 1));
+                    }
+                }
+                #pragma omp barrier
+            }
+        }
+    } else {
+        // Parallelize over y (new)
+        int nthreads, tid, jstart, jend, ii;
+        #pragma omp parallel private(nthreads, tid, jstart, jend, ii)
+        {
+            nthreads = omp_get_num_threads();
+            tid = omp_get_thread_num();
+            jstart = (ySize - 2) / nthreads * tid + 1;
+            jend = (tid==nthreads-1 ? ySize-2 : jstart + (ySize - 2) / nthreads - 1);
+
+            for (int i = 1; i < xSize - 1 + nthreads -1; ++i)
+            {
+                ii = i - tid;
+                if (ii >= 1 && ii < xSize - 1)
+                {
+                    for (int j = jstart; j <= jend; ++j)
+                    {
+                        (*x)(j, ii) = w_c * ((*rhs)(j, ii) + (w_y * (*x)(j - 1, ii) + w_x * (*x)(j, ii - 1)));
+                    }
+                }
+                #pragma omp barrier
+            }
+        }
+
+        // backward substitution
+        #pragma omp parallel private(nthreads, tid, jstart, jend, ii)
+        {
+            nthreads = omp_get_num_threads();
+            tid = omp_get_thread_num();
+            jstart = (ySize - 2) / nthreads * tid + 1;
+            jend = (tid==nthreads-1 ? ySize-2 : jstart + (ySize - 2) / nthreads - 1);
+
+            for (int i = xSize - 1 + nthreads -1; i > 0; --i)
+            {
+                ii = i - tid;
+                if (ii >= 1 && ii < xSize - 1){
+                    for (int j = jend; j >= jstart; --j)
+                    {
+                        (*x)(j, ii) = (*x)(j, ii) + w_c * (w_y * (*x)(j + 1, ii) + w_x * (*x)(j, ii + 1));
+                    }
+                }
+                #pragma omp barrier
+            }
         }
     }
-
-    // backward substitution
-    #pragma omp parallel private(nthreads, tid, istart, iend, jj)
-    {
-        nthreads = omp_get_num_threads();
-        tid = omp_get_thread_num();
-        istart = (xSize - 2) / nthreads * tid + 1;
-        iend = (tid==nthreads-1 ? xSize-2 : istart + (xSize - 2) / nthreads - 1);
-
-    for (int j = ySize - 1 + nthreads -1; j > 0; --j)
-    {
-         jj = j - tid;
-            if (jj >= 1 && jj < ySize - 1){
-
-                for (int i = iend; i >= istart; --i)
-                {
-                    (*x)(jj, i) = (*x)(jj, i) + w_c * (w_y * (*x)(jj + 1, i) + w_x * (*x)(jj, i + 1));
-                }
-            }
-            #pragma omp barrier
-    }
-}
 
 #ifdef LIKWID_PERFMON
     LIKWID_MARKER_STOP("GS_PRE_CON");
