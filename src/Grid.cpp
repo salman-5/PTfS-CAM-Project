@@ -17,6 +17,11 @@
 // ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 Grid::Grid(int columns_,int rows_):columns(columns_+2*HALO),rows(rows_+2*HALO)
 {
+    START_TIMER(GRID_C_R);
+
+    #ifdef LIKWID_PERFMON
+        LIKWID_MARKER_START("GRID_C_R");
+    #endif
 
     for(int i=0; i<4; ++i){
         ghost[i] = Dirichlet;
@@ -28,10 +33,21 @@ Grid::Grid(int columns_,int rows_):columns(columns_+2*HALO),rows(rows_+2*HALO)
     {
         arrayPtr[i] = 0.0;
     }
+
+    #ifdef LIKWID_PERFMON
+        LIKWID_MARKER_STOP("GRID_C_R");
+    #endif
+    STOP_TIMER(GRID_C_R);
 }
 
 Grid::Grid(int columns_,int rows_, BC_TYPE *ghost_):columns(columns_+2*HALO),rows(rows_+2*HALO)
 {
+    START_TIMER(GRID_C_R_G);
+
+    #ifdef LIKWID_PERFMON
+        LIKWID_MARKER_START("GRID_C_R_G");
+    #endif
+
     for(int i=0; i<4; ++i){
         ghost[i] = ghost_[i];
     }
@@ -41,10 +57,20 @@ Grid::Grid(int columns_,int rows_, BC_TYPE *ghost_):columns(columns_+2*HALO),row
     {
         arrayPtr[i] = 0.0;
     }
+    #ifdef LIKWID_PERFMON
+        LIKWID_MARKER_STOP("GRID_C_R_G");
+    #endif
+    STOP_TIMER(GRID_C_R_G);
 }
 
 Grid::Grid(const Grid &s)
 {
+    START_TIMER(GRID);
+
+    #ifdef LIKWID_PERFMON
+        LIKWID_MARKER_START("GRID");
+    #endif
+
     if(this != &s)
     {
         rows= s.rows;
@@ -63,6 +89,11 @@ Grid::Grid(const Grid &s)
             arrayPtr[i] = s.arrayPtr[i];
         }
     }
+    #ifdef LIKWID_PERFMON
+        LIKWID_MARKER_STOP("GRID");
+    #endif
+
+    STOP_TIMER(GRID);
 }
 
 
@@ -146,6 +177,11 @@ int Grid::numGrids(bool halo) const
 //used mainly for dirichlet type boundary
 void Grid::fillBoundary(std::function<double(int,int)> func, Direction dir)
 {
+    START_TIMER(FILL_BOUNDARY)
+
+#ifdef LIKWID_PERFMON
+    LIKWID_MARKER_START("FILL_BOUNDARY");
+#endif
     if(dir == WEST)
         for(int j=0; j<numGrids_y(true);++j)
         {
@@ -169,10 +205,18 @@ void Grid::fillBoundary(std::function<double(int,int)> func, Direction dir)
         {
             (*this)(0,i) = func(i,0);
         }
+    #ifdef LIKWID_PERFMON
+    LIKWID_MARKER_STOP("FILL_BOUNDARY");
+#endif
+        STOP_TIMER(FILL_BOUNDARY);
 }
 
 void Grid::fill(double val, bool halo)
 {
+    START_TIMER(FILL_VAL);
+    #ifdef LIKWID_PERFMON
+        LIKWID_MARKER_START("FILL_VAL");
+    #endif
     int shift = halo?0:HALO;
 
     for(int j=shift; j<numGrids_y(true)-shift; ++j) {
@@ -180,22 +224,40 @@ void Grid::fill(double val, bool halo)
             (*this)(j,i) = val;
         }
     }
+    #ifdef LIKWID_PERFMON
+        LIKWID_MARKER_STOP("FILL_VAL");
+    #endif
+    STOP_TIMER(FILL_VAL);
 }
 
 void Grid::rand(bool halo, unsigned int seed)
 {
-    int shift = halo?0:HALO;
+    START_TIMER(RAND);
 
-    for(int j=shift; j<numGrids_y(true)-shift; ++j) {
-        for(int i=shift; i<numGrids_x(true)-shift; ++i) {
-            (*this)(j,i) = rand_r(&seed)/static_cast<double>(RAND_MAX);
-        }
+#ifdef LIKWID_PERFMON
+    LIKWID_MARKER_START("RAND");
+#endif
+int shift = halo?0:HALO;
+
+for(int j=shift; j<numGrids_y(true)-shift; ++j) {
+    for(int i=shift; i<numGrids_x(true)-shift; ++i) {
+        (*this)(j,i) = rand_r(&seed)/static_cast<double>(RAND_MAX);
     }
+}
+#ifdef LIKWID_PERFMON
+    LIKWID_MARKER_STOP("RAND");
+#endif
+STOP_TIMER(RAND);
 }
 
 
 void Grid::fill(std::function<double(int,int)> func, bool halo)
 {
+    START_TIMER(FILL_FUNC);
+
+    #ifdef LIKWID_PERFMON
+        LIKWID_MARKER_START("FILL_FUNC");
+    #endif
     int shift = halo?0:HALO;
 
     for(int j=shift; j<numGrids_y(true)-shift; ++j) {
@@ -203,12 +265,22 @@ void Grid::fill(std::function<double(int,int)> func, bool halo)
             (*this)(j,i) = func(i,j);
         }
     }
+    #ifdef LIKWID_PERFMON
+        LIKWID_MARKER_STOP("FILL_FUNC");
+    #endif
+    STOP_TIMER(FILL_FUNC);
 }
 
 //copies inner values to halo with a shift which depends on the function passed in
 //used mainly for neumann type boundary
 void Grid::copyToHalo(std::function<double(int,int)> shift_func, Direction dir)
 {
+
+    START_TIMER(COPY_TO_HALO);
+
+#ifdef LIKWID_PERFMON
+    LIKWID_MARKER_START("COPY_TO_HALO");
+#endif
     if(dir == WEST)
         for(int j=0; j<numGrids_y(true);++j)
         {
@@ -232,6 +304,12 @@ void Grid::copyToHalo(std::function<double(int,int)> shift_func, Direction dir)
         {
             (*this)(0,i) = (*this)(HALO,i) + shift_func(i,0);
         }
+
+        
+#ifdef LIKWID_PERFMON
+    LIKWID_MARKER_STOP("COPY_TO_HALO");
+#endif
+        STOP_TIMER(COPY_TO_HALO);
 }
 
 void Grid::swap(Grid &other)
