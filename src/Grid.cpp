@@ -29,10 +29,23 @@ Grid::Grid(int columns_,int rows_):columns(columns_+2*HALO),rows(rows_+2*HALO)
 
     //always pad with halo; to support Dirichlet
     arrayPtr = new double[ rows*columns];
-    for (int i =0; i<rows*columns;i++)
-    {
-        arrayPtr[i] = 0.0;
-    }
+
+    // Parallelize initialization with OpenMP for performance
+    // Use OpenMP if any scheduling macro is defined, otherwise fallback to serial
+    #if GRID_OMP_DYNAMIC || GRID_OMP_SIMD || GRID_OMP_STATIC || GRID_OMP_COLLAPSE
+        #ifdef GRID_OMP_DYNAMIC
+            #pragma omp parallel for schedule(dynamic)
+        #elif GRID_OMP_SIMD
+            #pragma omp parallel for simd
+        #elif GRID_OMP_STATIC
+            #pragma omp parallel for schedule(static)
+        #endif
+        for (int i = 0; i < rows * columns; i++) {
+            arrayPtr[i] = 0.0;
+        }
+    #else
+        std::fill(arrayPtr, arrayPtr + rows * columns, 0.0);
+    #endif
 
     #ifdef LIKWID_PERFMON
         LIKWID_MARKER_STOP("GRID_C_R");
@@ -84,10 +97,23 @@ Grid::Grid(const Grid &s)
         int totGrids = rows * columns;
         // performing a deep-copy
         arrayPtr = new double[totGrids];
+        #if GRID_OMP_DYNAMIC || GRID_OMP_SIMD || GRID_OMP_STATIC || GRID_OMP_COLLAPSE
+        #ifdef GRID_OMP_DYNAMIC
+            #pragma omp parallel for schedule(dynamic)
+        #elif GRID_OMP_SIMD
+            #pragma omp parallel for simd
+        #elif GRID_OMP_STATIC
+            #pragma omp parallel for schedule(static)
+        #endif
+        for (int i = 0; i < rows * columns; i++) {
+            arrayPtr[i] = 0.0;
+        }
+    #else
         for(int i=0; i<totGrids;++i)
         {
             arrayPtr[i] = s.arrayPtr[i];
         }
+    #endif
     }
     #ifdef LIKWID_PERFMON
         LIKWID_MARKER_STOP("GRID");
@@ -238,12 +264,29 @@ void Grid::rand(bool halo, unsigned int seed)
     LIKWID_MARKER_START("RAND");
 #endif
 int shift = halo?0:HALO;
-
-for(int j=shift; j<numGrids_y(true)-shift; ++j) {
+ #if GRID_OMP_DYNAMIC || GRID_OMP_COLLAPSE_STATIC || GRID_OMP_STATIC || GRID_OMP_COLLAPSE
+        #ifdef GRID_OMP_DYNAMIC
+            #pragma omp parallel for schedule(dynamic)
+        #elif GRID_OMP_COLLAPSE_STATIC
+            #pragma omp parallel for collapse(2) schedule(static)
+        #elif GRID_OMP_STATIC
+            #pragma omp parallel for schedule(static)
+        #elif GRID_OMP_COLLAPSE
+            #pragma omp parallel for collapse(2) 
+        #endif
+    for(int j=shift; j<numGrids_y(true)-shift; ++j) {
     for(int i=shift; i<numGrids_x(true)-shift; ++i) {
         (*this)(j,i) = rand_r(&seed)/static_cast<double>(RAND_MAX);
     }
 }
+        #else
+     for(int j=shift; j<numGrids_y(true)-shift; ++j) {
+    for(int i=shift; i<numGrids_x(true)-shift; ++i) {
+        (*this)(j,i) = rand_r(&seed)/static_cast<double>(RAND_MAX);
+    }
+}
+    #endif
+
 #ifdef LIKWID_PERFMON
     LIKWID_MARKER_STOP("RAND");
 #endif
@@ -259,12 +302,28 @@ void Grid::fill(std::function<double(int,int)> func, bool halo)
         LIKWID_MARKER_START("FILL_FUNC");
     #endif
     int shift = halo?0:HALO;
-
-    for(int j=shift; j<numGrids_y(true)-shift; ++j) {
-        for(int i=shift; i<numGrids_x(true)-shift; ++i) {
-            (*this)(j,i) = func(i,j);
+    #if GRID_OMP_DYNAMIC || GRID_OMP_COLLAPSE_STATIC || GRID_OMP_STATIC || GRID_OMP_COLLAPSE
+        #ifdef GRID_OMP_DYNAMIC
+            #pragma omp parallel for schedule(dynamic)
+        #elif GRID_OMP_COLLAPSE_STATIC
+            #pragma omp parallel for collapse(2) schedule(static)
+        #elif GRID_OMP_STATIC
+            #pragma omp parallel for schedule(static)
+        #elif GRID_OMP_COLLAPSE
+            #pragma omp parallel for collapse(2) 
+        #endif
+        for(int j=shift; j<numGrids_y(true)-shift; ++j) {
+            for(int i=shift; i<numGrids_x(true)-shift; ++i) {
+                (*this)(j,i) = func(i,j);
+            }
         }
-    }
+        #else
+        for(int j=shift; j<numGrids_y(true)-shift; ++j) {
+            for(int i=shift; i<numGrids_x(true)-shift; ++i) {
+                (*this)(j,i) = func(i,j);
+            }
+        }
+    #endif
     #ifdef LIKWID_PERFMON
         LIKWID_MARKER_STOP("FILL_FUNC");
     #endif
@@ -340,14 +399,33 @@ void axpby(Grid *lhs, double a, Grid *x, double b, Grid *y, bool halo)
 #ifdef LIKWID_PERFMON
     LIKWID_MARKER_START("AXPBY");
 #endif
-
-    for(int yIndex=shift; yIndex<lhs->numGrids_y(true)-shift; ++yIndex)
+ #if GRID_OMP_DYNAMIC || GRID_OMP_COLLAPSE_STATIC || GRID_OMP_STATIC || GRID_OMP_COLLAPSE
+        #ifdef GRID_OMP_DYNAMIC
+            #pragma omp parallel for schedule(dynamic)
+        #elif GRID_OMP_COLLAPSE_STATIC
+            #pragma omp parallel for collapse(2) schedule(static)
+        #elif GRID_OMP_STATIC
+            #pragma omp parallel for schedule(static)
+        #elif GRID_OMP_COLLAPSE
+            #pragma omp parallel for collapse(2) 
+        #endif
+       for(int yIndex=shift; yIndex<lhs->numGrids_y(true)-shift; ++yIndex)
     {
         for(int xIndex=shift; xIndex<lhs->numGrids_x(true)-shift; ++xIndex)
         {
             (*lhs)(yIndex,xIndex) = (a*(*x)(yIndex,xIndex)) + (b*(*y)(yIndex,xIndex));
         }
     }
+        #else
+      for(int yIndex=shift; yIndex<lhs->numGrids_y(true)-shift; ++yIndex)
+    {
+        for(int xIndex=shift; xIndex<lhs->numGrids_x(true)-shift; ++xIndex)
+        {
+            (*lhs)(yIndex,xIndex) = (a*(*x)(yIndex,xIndex)) + (b*(*y)(yIndex,xIndex));
+        }
+    }
+    #endif
+
 #ifdef LIKWID_PERFMON
     LIKWID_MARKER_STOP("AXPBY");
 #endif
