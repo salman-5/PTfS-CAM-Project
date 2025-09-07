@@ -114,14 +114,33 @@ void PDE::applyStencil(Grid* lhs, Grid* x)
 #ifdef LIKWID_PERFMON
     LIKWID_MARKER_START("APPLY_STENCIL");
 #endif
-
-    for ( int j=1; j<ySize-1; ++j)
+ #if GRID_OMP_DYNAMIC || GRID_OMP_COLLAPSE_STATIC || GRID_OMP_STATIC || GRID_OMP_COLLAPSE
+        #ifdef GRID_OMP_DYNAMIC
+            #pragma omp parallel for schedule(dynamic)
+        #elif GRID_OMP_COLLAPSE_STATIC
+            #pragma omp parallel for collapse(2) schedule(static)
+        #elif GRID_OMP_STATIC
+            #pragma omp parallel for schedule(static)
+        #elif GRID_OMP_COLLAPSE
+            #pragma omp parallel for collapse(2) 
+        #endif
+        for ( int j=1; j<ySize-1; ++j)
     {
         for ( int i=1; i<xSize-1; ++i)
         {
             (*lhs)(j,i) = w_c*(*x)(j,i) - w_y*((*x)(j+1,i) + (*x)(j-1,i)) - w_x*((*x)(j,i+1) + (*x)(j,i-1));
         }
     }
+        #else
+     for ( int j=1; j<ySize-1; ++j)
+    {
+        for ( int i=1; i<xSize-1; ++i)
+        {
+            (*lhs)(j,i) = w_c*(*x)(j,i) - w_y*((*x)(j+1,i) + (*x)(j-1,i)) - w_x*((*x)(j,i+1) + (*x)(j,i-1));
+        }
+    }
+    #endif
+
 
 #ifdef LIKWID_PERFMON
     LIKWID_MARKER_STOP("APPLY_STENCIL");
