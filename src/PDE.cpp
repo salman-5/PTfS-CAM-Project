@@ -121,18 +121,14 @@ void PDE::applyStencil(Grid *lhs, Grid *x)
     LIKWID_MARKER_START("APPLY_STENCIL");
 #endif
 
-    int iblock = 64; //temporary size, must be optimized
-    int jblock = 64; //temporary size, must be optimized
-    #pragma omp parallel for collapse(2) schedule(dynamic)
-    for (int jj = 1; jj < ySize-1; jj+=jblock){
-        for (int ii = 1; ii < xSize-1; ii+=iblock){
-            int jend = std::min(jj+jblock, ySize-1);
-            int iend = std::min(ii+iblock, xSize-1);
-            for (int j = jj; j < jend; ++j){
-                for (int i = ii; i < iend; ++i){
-                    (*lhs)(j,i) = w_c*(*x)(j,i) - w_y*((*x)(j+1,i) + (*x)(j-1,i)) - w_x*((*x)(j,i+1) + (*x)(j,i-1));
-                }
-            }
+    // int iblock = 64; //temporary size, must be optimized
+    // int jblock = 64; //temporary size, must be optimized
+    #pragma omp parallel for schedule(static)
+    for ( int j=1; j<ySize-1; ++j)
+    {
+        for ( int i=1; i<xSize-1; ++i)
+        {
+            (*lhs)(j,i) = w_c*(*x)(j,i) - w_y*((*x)(j+1,i) + (*x)(j-1,i)) - w_x*((*x)(j,i+1) + (*x)(j,i-1));
         }
     }
 
