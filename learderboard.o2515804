@@ -1,0 +1,62 @@
+### Starting TaskPrologue of job 2515804 on f0344 at Sun Sep  7 14:21:30 CEST 2025
+#   SLURM_JOB_NODELIST=f0344
+#   SLURM_JOB_NUM_NODES=1
+#   SLURM_NTASKS=
+#   SLURM_NPROCS=
+#   SLURM_TASKS_PER_NODE=72
+#   SLURM_JOB_CPUS_PER_NODE=72
+#   SLURM_EXPORT_ENV=NONE
+Running on cores 0-71 with governor powersave
+### Finished TaskPrologue
+NOTE: If and ONLY IF you want to use likwid-perfctr you have to add '--constraint=hwperf' to your batch jobs.
+      likwid-features and likwid-setFrequencies are not available. The frequency/governor can be set using SLURM features.
+/apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-compilers-2023.2.1-axze7ocbc5zpklxb6kr5h2d5hbpf2lxk/compiler/2023.2.1/linux/bin/icpx -c -std=c++0x -Wall -Winline -Wshadow -W -O3 -qopenmp -xHOST -Wno-tautological-constant-compare   -Iinclude -fp-model=precise -o test_test.o src/test.cpp
+/apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-compilers-2023.2.1-axze7ocbc5zpklxb6kr5h2d5hbpf2lxk/compiler/2023.2.1/linux/bin/icpx -c -std=c++0x -Wall -Winline -Wshadow -W -O3 -qopenmp -xHOST -Wno-tautological-constant-compare   -Iinclude -fp-model=precise -o Grid_test.o src/Grid.cpp
+/apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-compilers-2023.2.1-axze7ocbc5zpklxb6kr5h2d5hbpf2lxk/compiler/2023.2.1/linux/bin/icpx -c -std=c++0x -Wall -Winline -Wshadow -W -O3 -qopenmp -xHOST -Wno-tautological-constant-compare   -Iinclude -fp-model=precise -o PDE_test.o src/PDE.cpp
+/apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-compilers-2023.2.1-axze7ocbc5zpklxb6kr5h2d5hbpf2lxk/compiler/2023.2.1/linux/bin/icpx -c -std=c++0x -Wall -Winline -Wshadow -W -O3 -qopenmp -xHOST -Wno-tautological-constant-compare   -Iinclude -fp-model=precise -o Solver_test.o src/Solver.cpp
+/apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-compilers-2023.2.1-axze7ocbc5zpklxb6kr5h2d5hbpf2lxk/compiler/2023.2.1/linux/bin/icpx -c -std=c++0x -Wall -Winline -Wshadow -W -O3 -qopenmp -xHOST -Wno-tautological-constant-compare   -Iinclude -fp-model=precise -o timer_test.o src/timer.cpp
+/apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-compilers-2023.2.1-axze7ocbc5zpklxb6kr5h2d5hbpf2lxk/compiler/2023.2.1/linux/bin/icpx -std=c++0x -Wall -Winline -Wshadow -W -O3 -qopenmp -xHOST -Wno-tautological-constant-compare   -fp-model=precise -o test test_test.o Grid_test.o PDE_test.o Solver_test.o timer_test.o -lstdc++fs  
+/apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-compilers-2023.2.1-axze7ocbc5zpklxb6kr5h2d5hbpf2lxk/compiler/2023.2.1/linux/bin/icpx -c -std=c++0x -Wall -Winline -Wshadow -W -O3 -qopenmp -xHOST -Wno-tautological-constant-compare   -Wno-tautological-constant-compare -Iinclude src/perf.cpp
+/apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-compilers-2023.2.1-axze7ocbc5zpklxb6kr5h2d5hbpf2lxk/compiler/2023.2.1/linux/bin/icpx -c -std=c++0x -Wall -Winline -Wshadow -W -O3 -qopenmp -xHOST -Wno-tautological-constant-compare   -Wno-tautological-constant-compare -Iinclude src/Grid.cpp
+/apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-compilers-2023.2.1-axze7ocbc5zpklxb6kr5h2d5hbpf2lxk/compiler/2023.2.1/linux/bin/icpx -c -std=c++0x -Wall -Winline -Wshadow -W -O3 -qopenmp -xHOST -Wno-tautological-constant-compare   -Wno-tautological-constant-compare -Iinclude src/PDE.cpp
+/apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-compilers-2023.2.1-axze7ocbc5zpklxb6kr5h2d5hbpf2lxk/compiler/2023.2.1/linux/bin/icpx -c -std=c++0x -Wall -Winline -Wshadow -W -O3 -qopenmp -xHOST -Wno-tautological-constant-compare   -Wno-tautological-constant-compare -Iinclude src/Solver.cpp
+/apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-compilers-2023.2.1-axze7ocbc5zpklxb6kr5h2d5hbpf2lxk/compiler/2023.2.1/linux/bin/icpx -c -std=c++0x -Wall -Winline -Wshadow -W -O3 -qopenmp -xHOST -Wno-tautological-constant-compare   -Wno-tautological-constant-compare -Iinclude src/timer.cpp
+/apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-compilers-2023.2.1-axze7ocbc5zpklxb6kr5h2d5hbpf2lxk/compiler/2023.2.1/linux/bin/icpx -std=c++0x -Wall -Winline -Wshadow -W -O3 -qopenmp -xHOST -Wno-tautological-constant-compare   -Wno-tautological-constant-compare -o perf perf.o Grid.o PDE.o Solver.o timer.o -lstdc++fs  
+Starting tests...
+Test 1 done.
+Test 2 done.
+Test 3 done.
+Test 4 done.
+Verifying integrity and printing final score...
+Found: CG = 2497 PCG = 962
+Found: CG = 2470 PCG = 685
+Found: CG = 2408 PCG = 864
+Found: CG = 2462 PCG = 820
+Congratulations! Your final score is:
+1646
+Your verification token is given like follows, please also submit it when submitting your score to the leaderboard. 3625830756
+=== JOB_STATISTICS ===
+=== current date     : Sun Sep  7 14:37:59 CEST 2025
+= Job-ID             : 2515804 on fritz
+= Job-Name           : learderboard
+= Job-Command        : /home/hpc/ptfs/ptfs290h/PTfS-CAM-Project/job.sh
+= Initial workdir    : /home/hpc/ptfs/ptfs290h/PTfS-CAM-Project
+= Queue/Partition    : singlenode
+= Slurm account      : ptfs with QOS=ptfs
+= Features           : hwperf
+= Requested resources:  for 01:00:00
+= Elapsed runtime    : 00:16:31
+= Total RAM usage    : 24.0 GiB 
+= Node list          : f0344
+= Subm/Elig/Start/End: 2025-09-07T14:21:27 / 2025-09-07T14:21:27 / 2025-09-07T14:21:28 / 2025-09-07T14:37:59
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody             6.7G  1000.0G  1500.0G        N/A      57K   5,000K   7,500K        N/A    
+    /home/hpc              16.0G   104.9G   209.7G        N/A  25,284      500K   1,000K        N/A    
+    /lustre                 4.0K     0.0K     0.0K        N/A       1       80K     250K        N/A    
+======================
+=== Network traffic stats (does not include Infiniband) ======
+= HPC internal traffic (e.g. to fileservers): 0 GB in / 0 GB out
+= External traffic: 0 GB in / 0 GB out
+======================
