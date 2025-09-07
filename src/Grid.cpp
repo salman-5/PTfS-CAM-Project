@@ -481,13 +481,36 @@ double dotProduct(Grid *x, Grid *y, bool halo)
 #endif
 
     double dot_res = 0;
-    for(int yIndex=shift; yIndex<x->numGrids_y(true)-shift; ++yIndex)
+
+
+
+    #if GRID_OMP_DYNAMIC || GRID_OMP_COLLAPSE_STATIC || GRID_OMP_STATIC || GRID_OMP_COLLAPSE
+        #ifdef GRID_OMP_DYNAMIC
+            #pragma omp parallel for schedule(dynamic) reduction(+:dot_res)
+        #elif GRID_OMP_COLLAPSE_STATIC
+            #pragma omp parallel for collapse(2) schedule(static) reduction(+:dot_res)
+        #elif GRID_OMP_STATIC
+            #pragma omp parallel for schedule(static) reduction(+:dot_res)
+        #elif GRID_OMP_COLLAPSE
+            #pragma omp parallel for collapse(2) reduction(+:dot_res)
+        #endif
+      for(int yIndex=shift; yIndex<x->numGrids_y(true)-shift; ++yIndex)
     {
         for(int xIndex=shift; xIndex<x->numGrids_x(true)-shift; ++xIndex)
         {
             dot_res += (*x)(yIndex,xIndex)*(*y)(yIndex,xIndex);
         }
     }
+        #else
+     for(int yIndex=shift; yIndex<x->numGrids_y(true)-shift; ++yIndex)
+    {
+        for(int xIndex=shift; xIndex<x->numGrids_x(true)-shift; ++xIndex)
+        {
+            dot_res += (*x)(yIndex,xIndex)*(*y)(yIndex,xIndex);
+        }
+    }
+    #endif
+
 
 #ifdef LIKWID_PERFMON
     LIKWID_MARKER_STOP("DOT_PRODUCT");
