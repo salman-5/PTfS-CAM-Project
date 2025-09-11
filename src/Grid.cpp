@@ -291,6 +291,38 @@ void axpby(Grid *lhs, double a, Grid *x, double b, Grid *y, bool halo)
     STOP_TIMER(AXPBY);
 }
 
+void axpby(Grid* lhs1, double a1, Grid* x1, double b1, Grid* y1,
+            Grid* lhs2, double a2, Grid* x2, double b2, Grid* y2)
+{
+    START_TIMER(AXPBY2);
+#ifdef DEBUG
+    assert((lhs1->numGrids_y(true)==x1->numGrids_y(true)) && (lhs1->numGrids_x(true)==x1->numGrids_x(true)));
+    assert((y1->numGrids_y(true)==x1->numGrids_y(true)) && (y1->numGrids_x(true)==x1->numGrids_x(true)));
+    assert((lhs2->numGrids_y(true)==x2->numGrids_y(true)) && (lhs2->numGrids_x(true)==x2->numGrids_x(true)));
+    assert((y2->numGrids_y(true)==x2->numGrids_y(true)) && (y2->numGrids_x(true)==x2->numGrids_x(true)));
+#endif
+#ifdef LIKWID_PERFMON
+    LIKWID_MARKER_START("AXPBY2");
+#endif
+    int shift = 0; 
+    #pragma omp parallel for schedule(static)
+    for(int yIndex=shift; yIndex<lhs1->numGrids_y(true)-shift; ++yIndex)
+    {
+        for(int xIndex=shift; xIndex<lhs1->numGrids_x(true)-shift; ++xIndex)
+        {
+            (*lhs1)(yIndex,xIndex) = (a1*(*x1)(yIndex,xIndex)) + (b1*(*y1)(yIndex,xIndex));
+            (*lhs2)(yIndex,xIndex) = (a2*(*x2)(yIndex,xIndex)) + (b2*(*y2)(yIndex,xIndex));
+        }
+    }
+#ifdef LIKWID_PERFMON
+    LIKWID_MARKER_STOP("AXPBY2");
+#endif
+
+    STOP_TIMER(AXPBY2);
+
+}
+
+
 
 //Calculates lhs[:] = a*rhs[:]
 void copy(Grid *lhs, double a, Grid *rhs, bool halo)
