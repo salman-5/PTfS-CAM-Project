@@ -10,4 +10,7 @@ unset SLURM_EXPORT_ENV
 module load intel likwid
 make clean
 make
-./leaderboard.sh "OMP_PROC_BIND=close" "likwid-pin -c S0:0-35@S1:36-71"
+
+# ./leaderboard.sh "" "likwid-pin -c S0:0-35@S1:36-71"
+./leaderboard.sh "" "likwid-pin -c S0:0-35@S1:36-71"
+

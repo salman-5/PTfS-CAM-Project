@@ -25,7 +25,7 @@ Grid::Grid(int columns_,int rows_):columns(columns_+2*HALO),rows(rows_+2*HALO)
 
     //always pad with halo; to support Dirichlet
     arrayPtr = new double[ rows*columns];
-    #pragma omp parallel for simd
+    #pragma omp parallel for schedule(static)
     for (int i =0; i<rows*columns;i++)
     {
         arrayPtr[i] = 0.0;
@@ -40,7 +40,7 @@ Grid::Grid(int columns_,int rows_, BC_TYPE *ghost_):columns(columns_+2*HALO),row
     }
 
     arrayPtr = new double[rows*columns];
-    #pragma omp parallel for simd
+    #pragma omp parallel for schedule(static)
     for (int i =0; i<rows*columns;i++)
     {
         arrayPtr[i] = 0.0;
@@ -152,28 +152,28 @@ int Grid::numGrids(bool halo) const
 void Grid::fillBoundary(std::function<double(int,int)> func, Direction dir)
 {
     if(dir == WEST)
-        #pragma omp parallel for
+        #pragma omp parallel for schedule(static)
         for(int j=0; j<numGrids_y(true);++j)
         {
             (*this)(j,0) = func(0,j);
         }
 
     if(dir == EAST)
-        #pragma omp parallel for
+        #pragma omp parallel for schedule(static)
         for(int j=0; j<numGrids_y(true);++j)
         {
             (*this)(j,numGrids_x(true)-1) = func(numGrids_x(true)-1,j);
         }
 
     if(dir == NORTH)
-        #pragma omp parallel for
+        #pragma omp parallel for schedule(static)
         for(int i=0; i<numGrids_x(true);++i)
         {
             (*this)(numGrids_y(true)-1,i) = func(i,numGrids_y(true)-1);
         }
 
     if(dir == SOUTH)
-        #pragma omp parallel for
+        #pragma omp parallel for schedule(static)
         for(int i=0; i<numGrids_x(true);++i)
         {
             (*this)(0,i) = func(i,0);
