@@ -1,4 +1,4 @@
-CXX ?= g++
+CXX ?= icpx
 LIKWID ?= off
 
 FLAGS =

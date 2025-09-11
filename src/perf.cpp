@@ -42,9 +42,9 @@ int main(const int argc, char* const argv[])
     int nx = atoi(argv[2]);
     int numThreads = 1;
 
-#pragma omp parallel
+    #pragma omp parallel
     {
-#pragma omp single
+        #pragma omp single
         {
             numThreads = omp_get_num_threads();
         }
