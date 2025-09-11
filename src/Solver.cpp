@@ -33,10 +33,12 @@ int SolverClass::CG(int niter, double tol)
         pde->applyStencil(v,p);
         lambda =  alpha_0/dotProduct(v,p);
         //Update x
-        axpby(x, 1.0, x, lambda, p);
+        //axpby(x, 1.0, x, lambda, p);
         //Update r
-        axpby(r, 1.0, r, -lambda, v);
-        alpha_1 = dotProduct(r,r);
+        //axpby(r, 1.0, r, -lambda, v);
+        //alpha_1 = dotProduct(r,r);
+        alpha_1 = axpby_dotProduct(x, 1.0, x, lambda, p,
+                    r, 1.0, r, -lambda, v, r, r);
         //Update p
         axpby(p, 1.0, r, alpha_1/alpha_0, p);
         alpha_0 = alpha_1;
@@ -84,11 +86,8 @@ int SolverClass::PCG(int niter, double tol)
     {
         pde->applyStencil(v,p);
         lambda =  alpha_0/dotProduct(v,p);
-        //Update x & r
-        axpby(x, 1.0, x, lambda, p, r, 1.0, r, -lambda, v);
-        //Update r
-        //axpby(r, 1.0, r, -lambda, v);
-        res_norm_sq = dotProduct(r,r);
+        //Update x & r & also return res_norm_sq
+        res_norm_sq = axpby_dotProduct(x, 1.0, x, lambda, p, r, 1.0, r, -lambda, v, r, r); 
         //Update z
         pde->GSPreCon(r, z);
         alpha_1 = dotProduct(r,z);

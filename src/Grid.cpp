@@ -291,8 +291,9 @@ void axpby(Grid *lhs, double a, Grid *x, double b, Grid *y, bool halo)
     STOP_TIMER(AXPBY);
 }
 
-void axpby(Grid* lhs1, double a1, Grid* x1, double b1, Grid* y1,
-            Grid* lhs2, double a2, Grid* x2, double b2, Grid* y2)
+double axpby_dotProduct(Grid* lhs1, double a1, Grid* x1, double b1, Grid* y1,
+            Grid* lhs2, double a2, Grid* x2, double b2, Grid* y2,
+            Grid* x, Grid* y)
 {
     START_TIMER(AXPBY2);
 #ifdef DEBUG
@@ -305,13 +306,15 @@ void axpby(Grid* lhs1, double a1, Grid* x1, double b1, Grid* y1,
     LIKWID_MARKER_START("AXPBY2");
 #endif
     int shift = 0; 
-    #pragma omp parallel for schedule(static)
+    double dot_res = 0;
+    #pragma omp parallel for schedule(static) reduction(+:dot_res)
     for(int yIndex=shift; yIndex<lhs1->numGrids_y(true)-shift; ++yIndex)
     {
         for(int xIndex=shift; xIndex<lhs1->numGrids_x(true)-shift; ++xIndex)
         {
             (*lhs1)(yIndex,xIndex) = (a1*(*x1)(yIndex,xIndex)) + (b1*(*y1)(yIndex,xIndex));
             (*lhs2)(yIndex,xIndex) = (a2*(*x2)(yIndex,xIndex)) + (b2*(*y2)(yIndex,xIndex));
+            dot_res += (*x)(yIndex,xIndex)*(*y)(yIndex,xIndex);
         }
     }
 #ifdef LIKWID_PERFMON
@@ -319,7 +322,7 @@ void axpby(Grid* lhs1, double a1, Grid* x1, double b1, Grid* y1,
 #endif
 
     STOP_TIMER(AXPBY2);
-
+    return dot_res;
 }
 
 
