@@ -18,11 +18,9 @@
 // ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 Grid::Grid(int columns_,int rows_):columns(columns_+2*HALO),rows(rows_+2*HALO)
 {
-
     for(int i=0; i<4; ++i){
         ghost[i] = Dirichlet;
     }
-
     //always pad with halo; to support Dirichlet
     arrayPtr = new double[ rows*columns];
     #pragma omp parallel for schedule(static)
@@ -30,7 +28,6 @@ Grid::Grid(int columns_,int rows_):columns(columns_+2*HALO),rows(rows_+2*HALO)
     {
         arrayPtr[i] = 0.0;
     }
-
 }
 
 Grid::Grid(int columns_,int rows_, BC_TYPE *ghost_):columns(columns_+2*HALO),rows(rows_+2*HALO)
@@ -183,7 +180,7 @@ void Grid::fillBoundary(std::function<double(int,int)> func, Direction dir)
 void Grid::fill(double val, bool halo)
 {
     int shift = halo?0:HALO;
-    #pragma omp parallel for collapse(2)
+    #pragma omp parallel for schedule(static)
     for(int j=shift; j<numGrids_y(true)-shift; ++j) {
         for(int i=shift; i<numGrids_x(true)-shift; ++i) {
             (*this)(j,i) = val;
@@ -194,12 +191,12 @@ void Grid::fill(double val, bool halo)
 void Grid::rand(bool halo, unsigned int seed)
 {
     int shift = halo?0:HALO;
-    #pragma omp parallel for schedule(dynamic)
-        for(int j=shift; j<numGrids_y(true)-shift; ++j) {
-            for(int i=shift; i<numGrids_x(true)-shift; ++i) {
-                (*this)(j,i) = rand_r(&seed)/static_cast<double>(RAND_MAX);
-            }
-        } 
+    #pragma omp parallel for schedule(static)
+    for(int j=shift; j<numGrids_y(true)-shift; ++j) {
+        for(int i=shift; i<numGrids_x(true)-shift; ++i) {
+            (*this)(j,i) = rand_r(&seed)/static_cast<double>(RAND_MAX);
+        }
+    } 
     
 }
 
@@ -207,7 +204,7 @@ void Grid::rand(bool halo, unsigned int seed)
 void Grid::fill(std::function<double(int,int)> func, bool halo)
 {
     int shift = halo?0:HALO;
-    #pragma omp parallel for schedule(dynamic)
+    #pragma omp parallel for schedule(static)
     for(int j=shift; j<numGrids_y(true)-shift; ++j) {
         for(int i=shift; i<numGrids_x(true)-shift; ++i) {
             (*this)(j,i) = func(i,j);
