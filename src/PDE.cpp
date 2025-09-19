@@ -129,6 +129,7 @@ void PDE::applyStencil(Grid *lhs, Grid *x)
             int jend = std::min(jj+jblock, ySize-1);
             int iend = std::min(ii+iblock, xSize-1);
             for (int j = jj; j < jend; ++j){
+                #pragma omp simd
                 for (int i = ii; i < iend; ++i){
                     (*lhs)(j,i) = w_c*(*x)(j,i) - w_y*((*x)(j+1,i) + (*x)(j-1,i)) - w_x*((*x)(j,i+1) + (*x)(j,i-1));
                 }
