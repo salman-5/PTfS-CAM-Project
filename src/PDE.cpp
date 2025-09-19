@@ -122,7 +122,7 @@ void PDE::applyStencil(Grid *lhs, Grid *x)
 #endif
 
     int iblock = 64; //temporary size, must be optimized
-    int jblock = 64; //temporary size, must be optimized
+    int jblock = 32; //temporary size, must be optimized
     #pragma omp parallel for collapse(2) schedule(dynamic)
     for (int jj = 1; jj < ySize-1; jj+=jblock){
         for (int ii = 1; ii < xSize-1; ii+=iblock){
