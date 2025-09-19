@@ -276,6 +276,7 @@ void axpby(Grid *lhs, double a, Grid *x, double b, Grid *y, bool halo)
     #pragma omp parallel for schedule(static)
     for(int yIndex=shift; yIndex<lhs->numGrids_y(true)-shift; ++yIndex)
     {
+        #pragma omp simd
         for(int xIndex=shift; xIndex<lhs->numGrids_x(true)-shift; ++xIndex)
         {
             (*lhs)(yIndex,xIndex) = (a*(*x)(yIndex,xIndex)) + (b*(*y)(yIndex,xIndex));
@@ -288,9 +289,9 @@ void axpby(Grid *lhs, double a, Grid *x, double b, Grid *y, bool halo)
     STOP_TIMER(AXPBY);
 }
 
-double axpby_dotProduct(Grid* lhs1, double a1, Grid* x1, double b1, Grid* y1,
-            Grid* lhs2, double a2, Grid* x2, double b2, Grid* y2,
-            Grid* x, Grid* y)
+double  axpby_dotProduct(Grid* lhs1, double a1, Grid* x1, double b1, Grid* y1,
+            Grid* lhs2, double a2, Grid* x2, Grid* y2
+            )
 {
     START_TIMER(AXPBY2);
 #ifdef DEBUG
@@ -309,9 +310,9 @@ double axpby_dotProduct(Grid* lhs1, double a1, Grid* x1, double b1, Grid* y1,
     {
         for(int xIndex=shift; xIndex<lhs1->numGrids_x(true)-shift; ++xIndex)
         {
-            (*lhs1)(yIndex,xIndex) = (a1*(*x1)(yIndex,xIndex)) + (b1*(*y1)(yIndex,xIndex));
-            (*lhs2)(yIndex,xIndex) = (a2*(*x2)(yIndex,xIndex)) + (b2*(*y2)(yIndex,xIndex));
-            dot_res += (*x)(yIndex,xIndex)*(*y)(yIndex,xIndex);
+            (*lhs1)(yIndex,xIndex) = (a1*(*lhs1)(yIndex,xIndex)) + (b1*(*y1)(yIndex,xIndex));
+            (*lhs2)(yIndex,xIndex) = (a2*(*lhs2)(yIndex,xIndex)) + (-b1*(*y2)(yIndex,xIndex));
+            dot_res += (*lhs2)(yIndex,xIndex)*(*lhs2)(yIndex,xIndex);
         }
     }
 #ifdef LIKWID_PERFMON

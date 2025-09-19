@@ -117,13 +117,17 @@ void PDE::applyStencil(Grid *lhs, Grid *x)
     const double w_y = 1.0 / (h_y * h_y);
     const double w_c = 2.0 * w_x + 2.0 * w_y;
 
-#ifdef LIKWID_PERFMON
-    LIKWID_MARKER_START("APPLY_STENCIL");
-#endif
+
 
     int iblock = 64; //temporary size, must be optimized
     int jblock = 32; //temporary size, must be optimized
-    #pragma omp parallel for collapse(2) schedule(dynamic)
+    
+    #pragma omp parallel
+    {
+    #ifdef LIKWID_PERFMON
+        LIKWID_MARKER_START("APPLY_STENCIL");
+    #endif
+    #pragma omp for collapse(2) schedule(dynamic)
     for (int jj = 1; jj < ySize-1; jj+=jblock){
         for (int ii = 1; ii < xSize-1; ii+=iblock){
             int jend = std::min(jj+jblock, ySize-1);
@@ -136,11 +140,10 @@ void PDE::applyStencil(Grid *lhs, Grid *x)
             }
         }
     }
-
-#ifdef LIKWID_PERFMON
-    LIKWID_MARKER_STOP("APPLY_STENCIL");
-#endif
-
+    #ifdef LIKWID_PERFMON
+        LIKWID_MARKER_STOP("APPLY_STENCIL");
+    #endif
+    }
     STOP_TIMER(APPLY_STENCIL);
 }
 
@@ -160,16 +163,15 @@ void PDE::GSPreCon(Grid *rhs, Grid *x)
     const double w_y = 1.0 / (h_y * h_y);
     const double w_c = 1.0 / static_cast<double>((2.0 * w_x + 2.0 * w_y));
 
-#ifdef LIKWID_PERFMON
-    LIKWID_MARKER_START("GS_PRE_CON");
-#endif
-
     // Choose parallelization direction based on grid shape
     if (xSize >= ySize) {
         // Parallelize over x (original)
         int nthreads, tid, istart, iend, jj;
         #pragma omp parallel private(nthreads, tid, istart, iend, jj)
         {
+            #ifdef LIKWID_PERFMON
+                LIKWID_MARKER_START("GS_PRE_CON_FORWARD");
+            #endif
             nthreads = omp_get_num_threads();
             tid = omp_get_thread_num();
             istart = (xSize - 2) / nthreads * tid + 1;
@@ -187,11 +189,17 @@ void PDE::GSPreCon(Grid *rhs, Grid *x)
                 }
                 #pragma omp barrier
             }
+            #ifdef LIKWID_PERFMON
+                LIKWID_MARKER_STOP("GS_PRE_CON_FORWARD");
+            #endif
         }
 
         // backward substitution
         #pragma omp parallel private(nthreads, tid, istart, iend, jj)
         {
+            #ifdef LIKWID_PERFMON
+                LIKWID_MARKER_START("GS_PRE_CON_BACKWARD");
+            #endif
             nthreads = omp_get_num_threads();
             tid = omp_get_thread_num();
             istart = (xSize - 2) / nthreads * tid + 1;
@@ -208,12 +216,19 @@ void PDE::GSPreCon(Grid *rhs, Grid *x)
                 }
                 #pragma omp barrier
             }
+            #ifdef LIKWID_PERFMON
+                LIKWID_MARKER_STOP("GS_PRE_CON_BACKWARD");
+            #endif
         }
     } else {
         // Parallelize over y (new)
         int nthreads, tid, jstart, jend, ii;
         #pragma omp parallel private(nthreads, tid, jstart, jend, ii)
         {
+            // forward substitution
+            #ifdef LIKWID_PERFMON
+                LIKWID_MARKER_START("GS_PRE_CON_FORWARD");
+            #endif
             nthreads = omp_get_num_threads();
             tid = omp_get_thread_num();
             jstart = (ySize - 2) / nthreads * tid + 1;
@@ -231,11 +246,17 @@ void PDE::GSPreCon(Grid *rhs, Grid *x)
                 }
                 #pragma omp barrier
             }
+            #ifdef LIKWID_PERFMON
+                LIKWID_MARKER_STOP("GS_PRE_CON_FORWARD");
+            #endif
         }
 
         // backward substitution
         #pragma omp parallel private(nthreads, tid, jstart, jend, ii)
         {
+            #ifdef LIKWID_PERFMON
+                LIKWID_MARKER_START("GS_PRE_CON_BACKWARD");
+            #endif
             nthreads = omp_get_num_threads();
             tid = omp_get_thread_num();
             jstart = (ySize - 2) / nthreads * tid + 1;
@@ -252,12 +273,13 @@ void PDE::GSPreCon(Grid *rhs, Grid *x)
                 }
                 #pragma omp barrier
             }
+            #ifdef LIKWID_PERFMON
+                LIKWID_MARKER_STOP("GS_PRE_CON_BACKWARD");
+            #endif
         }
     }
 
-#ifdef LIKWID_PERFMON
-    LIKWID_MARKER_STOP("GS_PRE_CON");
-#endif
+
 
     STOP_TIMER(GS_PRE_CON);
 }
