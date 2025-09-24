@@ -18,7 +18,7 @@ ifeq ($(DEBUG), true)
 	EXTRA_FLAGS := $(EXTRA_FLAGS) -DDEBUG
 endif
 
-LIKWID_FLAG =
+LIKWID_FLAG = 
 LIKWID_LINK_LIB =
 
 ifeq ($(LIKWID), on)

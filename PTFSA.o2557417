@@ -1,0 +1,2010 @@
+### Starting TaskPrologue of job 2557417 on f0779 at Fri Sep 19 20:35:47 CEST 2025
+#   SLURM_JOB_NODELIST=f0779
+#   SLURM_JOB_NUM_NODES=1
+#   SLURM_NTASKS=
+#   SLURM_NPROCS=
+#   SLURM_TASKS_PER_NODE=72
+#   SLURM_JOB_CPUS_PER_NODE=72
+#   SLURM_EXPORT_ENV=NONE
+Running on cores 0-71 with governor powersave
+### Finished TaskPrologue
+NOTE: If and ONLY IF you want to use likwid-perfctr you have to add '--constraint=hwperf' to your batch jobs.
+      likwid-features and likwid-setFrequencies are not available. The frequency/governor can be set using SLURM features.
+/apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-compilers-2023.2.1-axze7ocbc5zpklxb6kr5h2d5hbpf2lxk/compiler/2023.2.1/linux/bin/icpx -c -std=c++0x -Wall -Winline -Wshadow -W -O3 -qopenmp -xHOST -Wno-tautological-constant-compare   -Iinclude -fp-model=precise -o test_test.o src/test.cpp
+/apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-compilers-2023.2.1-axze7ocbc5zpklxb6kr5h2d5hbpf2lxk/compiler/2023.2.1/linux/bin/icpx -c -std=c++0x -Wall -Winline -Wshadow -W -O3 -qopenmp -xHOST -Wno-tautological-constant-compare   -Iinclude -fp-model=precise -o Grid_test.o src/Grid.cpp
+src/Grid.cpp:292:55: warning: unused parameter 'x1' [-Wunused-parameter]
+double  axpby_dotProduct(Grid* lhs1, double a1, Grid* x1, double b1, Grid* y1,
+                                                      ^
+src/Grid.cpp:293:42: warning: unused parameter 'x2' [-Wunused-parameter]
+            Grid* lhs2, double a2, Grid* x2, Grid* y2
+                                         ^
+2 warnings generated.
+/apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-compilers-2023.2.1-axze7ocbc5zpklxb6kr5h2d5hbpf2lxk/compiler/2023.2.1/linux/bin/icpx -c -std=c++0x -Wall -Winline -Wshadow -W -O3 -qopenmp -xHOST -Wno-tautological-constant-compare   -Iinclude -fp-model=precise -o PDE_test.o src/PDE.cpp
+/apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-compilers-2023.2.1-axze7ocbc5zpklxb6kr5h2d5hbpf2lxk/compiler/2023.2.1/linux/bin/icpx -c -std=c++0x -Wall -Winline -Wshadow -W -O3 -qopenmp -xHOST -Wno-tautological-constant-compare   -Iinclude -fp-model=precise -o Solver_test.o src/Solver.cpp
+/apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-compilers-2023.2.1-axze7ocbc5zpklxb6kr5h2d5hbpf2lxk/compiler/2023.2.1/linux/bin/icpx -c -std=c++0x -Wall -Winline -Wshadow -W -O3 -qopenmp -xHOST -Wno-tautological-constant-compare   -Iinclude -fp-model=precise -o timer_test.o src/timer.cpp
+/apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-compilers-2023.2.1-axze7ocbc5zpklxb6kr5h2d5hbpf2lxk/compiler/2023.2.1/linux/bin/icpx -std=c++0x -Wall -Winline -Wshadow -W -O3 -qopenmp -xHOST -Wno-tautological-constant-compare   -fp-model=precise -o test test_test.o Grid_test.o PDE_test.o Solver_test.o timer_test.o -lstdc++fs  
+/apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-compilers-2023.2.1-axze7ocbc5zpklxb6kr5h2d5hbpf2lxk/compiler/2023.2.1/linux/bin/icpx -c -std=c++0x -Wall -Winline -Wshadow -W -O3 -qopenmp -xHOST -Wno-tautological-constant-compare   -Wno-tautological-constant-compare -Iinclude src/perf.cpp
+/apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-compilers-2023.2.1-axze7ocbc5zpklxb6kr5h2d5hbpf2lxk/compiler/2023.2.1/linux/bin/icpx -c -std=c++0x -Wall -Winline -Wshadow -W -O3 -qopenmp -xHOST -Wno-tautological-constant-compare   -Wno-tautological-constant-compare -Iinclude src/Grid.cpp
+src/Grid.cpp:292:55: warning: unused parameter 'x1' [-Wunused-parameter]
+double  axpby_dotProduct(Grid* lhs1, double a1, Grid* x1, double b1, Grid* y1,
+                                                      ^
+src/Grid.cpp:293:42: warning: unused parameter 'x2' [-Wunused-parameter]
+            Grid* lhs2, double a2, Grid* x2, Grid* y2
+                                         ^
+2 warnings generated.
+/apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-compilers-2023.2.1-axze7ocbc5zpklxb6kr5h2d5hbpf2lxk/compiler/2023.2.1/linux/bin/icpx -c -std=c++0x -Wall -Winline -Wshadow -W -O3 -qopenmp -xHOST -Wno-tautological-constant-compare   -Wno-tautological-constant-compare -Iinclude src/PDE.cpp
+/apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-compilers-2023.2.1-axze7ocbc5zpklxb6kr5h2d5hbpf2lxk/compiler/2023.2.1/linux/bin/icpx -c -std=c++0x -Wall -Winline -Wshadow -W -O3 -qopenmp -xHOST -Wno-tautological-constant-compare   -Wno-tautological-constant-compare -Iinclude src/Solver.cpp
+/apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-compilers-2023.2.1-axze7ocbc5zpklxb6kr5h2d5hbpf2lxk/compiler/2023.2.1/linux/bin/icpx -c -std=c++0x -Wall -Winline -Wshadow -W -O3 -qopenmp -xHOST -Wno-tautological-constant-compare   -Wno-tautological-constant-compare -Iinclude src/timer.cpp
+/apps/SPACK/0.19.1/opt/linux-almalinux8-icelake/gcc-8.5.0/intel-oneapi-compilers-2023.2.1-axze7ocbc5zpklxb6kr5h2d5hbpf2lxk/compiler/2023.2.1/linux/bin/icpx -std=c++0x -Wall -Winline -Wshadow -W -O3 -qopenmp -xHOST -Wno-tautological-constant-compare   -Wno-tautological-constant-compare -o perf perf.o Grid.o PDE.o Solver.o timer.o -lstdc++fs  
+Running with X=20000 Y=2000 for CASE1
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 1
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 175.559139 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 61.784945 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 2.510994000e+00 |	 5.231237500e-02 |
+    DOT_PRODUCT |	         69 |	 3.487777000e+00 |	 5.054749275e-02 |
+  APPLY_STENCIL |	         45 |	 2.177974000e+00 |	 4.839942222e-02 |
+             CG |	          1 |	 4.556869000e+00 |	 4.556869000e+00 |
+         AXPBY2 |	         40 |	 3.543650000e+00 |	 8.859125000e-02 |
+     GS_PRE_CON |	         21 |	 7.148908000e+00 |	 3.404241905e-01 |
+            PCG |	          1 |	 1.294813800e+01 |	 1.294813800e+01 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 2
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 331.550833 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 117.544674 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 1.399968000e+00 |	 2.916600000e-02 |
+    DOT_PRODUCT |	         69 |	 1.784156000e+00 |	 2.585733333e-02 |
+  APPLY_STENCIL |	         45 |	 1.237823000e+00 |	 2.750717778e-02 |
+             CG |	          1 |	 2.412903000e+00 |	 2.412903000e+00 |
+         AXPBY2 |	         40 |	 1.899753000e+00 |	 4.749382500e-02 |
+     GS_PRE_CON |	         21 |	 3.632042000e+00 |	 1.729543810e-01 |
+            PCG |	          1 |	 6.805923000e+00 |	 6.805923000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 3
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 449.492495 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 177.993149 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 9.548280000e-01 |	 1.989225000e-02 |
+    DOT_PRODUCT |	         69 |	 1.050100000e+00 |	 1.521884058e-02 |
+  APPLY_STENCIL |	         45 |	 8.956390000e-01 |	 1.990308889e-02 |
+             CG |	          1 |	 1.779785000e+00 |	 1.779785000e+00 |
+         AXPBY2 |	         40 |	 1.433699000e+00 |	 3.584247500e-02 |
+     GS_PRE_CON |	         21 |	 2.450844000e+00 |	 1.167068571e-01 |
+            PCG |	          1 |	 4.494555000e+00 |	 4.494555000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 4
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 523.049825 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 221.856898 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 8.173880000e-01 |	 1.702891667e-02 |
+    DOT_PRODUCT |	         69 |	 8.572360000e-01 |	 1.242371014e-02 |
+  APPLY_STENCIL |	         45 |	 7.645660000e-01 |	 1.699035556e-02 |
+             CG |	          1 |	 1.529491000e+00 |	 1.529491000e+00 |
+         AXPBY2 |	         40 |	 1.255726000e+00 |	 3.139315000e-02 |
+     GS_PRE_CON |	         21 |	 1.849946000e+00 |	 8.809266667e-02 |
+            PCG |	          1 |	 3.605928000e+00 |	 3.605928000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 5
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 574.646180 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 257.194535 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 7.534040000e-01 |	 1.569591667e-02 |
+    DOT_PRODUCT |	         69 |	 7.442140000e-01 |	 1.078571014e-02 |
+  APPLY_STENCIL |	         45 |	 6.976440000e-01 |	 1.550320000e-02 |
+             CG |	          1 |	 1.392161000e+00 |	 1.392161000e+00 |
+         AXPBY2 |	         40 |	 1.150845000e+00 |	 2.877112500e-02 |
+     GS_PRE_CON |	         21 |	 1.517740000e+00 |	 7.227333333e-02 |
+            PCG |	          1 |	 3.110486000e+00 |	 3.110486000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 6
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 608.518653 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 287.956853 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 6.963460000e-01 |	 1.450720833e-02 |
+    DOT_PRODUCT |	         69 |	 6.656600000e-01 |	 9.647246377e-03 |
+  APPLY_STENCIL |	         45 |	 6.588120000e-01 |	 1.464026667e-02 |
+             CG |	          1 |	 1.314668000e+00 |	 1.314668000e+00 |
+         AXPBY2 |	         40 |	 1.105297000e+00 |	 2.763242500e-02 |
+     GS_PRE_CON |	         21 |	 1.294633000e+00 |	 6.164919048e-02 |
+            PCG |	          1 |	 2.778194000e+00 |	 2.778194000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 7
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 623.801132 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 313.070743 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 6.714430000e-01 |	 1.398839583e-02 |
+    DOT_PRODUCT |	         69 |	 6.540750000e-01 |	 9.479347826e-03 |
+  APPLY_STENCIL |	         45 |	 6.361680000e-01 |	 1.413706667e-02 |
+             CG |	          1 |	 1.282460000e+00 |	 1.282460000e+00 |
+         AXPBY2 |	         40 |	 1.066272000e+00 |	 2.665680000e-02 |
+     GS_PRE_CON |	         21 |	 1.117930000e+00 |	 5.323476190e-02 |
+            PCG |	          1 |	 2.555333000e+00 |	 2.555333000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 8
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 648.998231 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 336.773616 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 6.445880000e-01 |	 1.342891667e-02 |
+    DOT_PRODUCT |	         69 |	 6.032170000e-01 |	 8.742275362e-03 |
+  APPLY_STENCIL |	         45 |	 6.203890000e-01 |	 1.378642222e-02 |
+             CG |	          1 |	 1.232669000e+00 |	 1.232669000e+00 |
+         AXPBY2 |	         40 |	 1.038788000e+00 |	 2.596970000e-02 |
+     GS_PRE_CON |	         21 |	 9.938790000e-01 |	 4.732757143e-02 |
+            PCG |	          1 |	 2.375483000e+00 |	 2.375483000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 9
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 663.468197 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 356.380140 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 6.313910000e-01 |	 1.315397917e-02 |
+    DOT_PRODUCT |	         69 |	 5.819640000e-01 |	 8.434260870e-03 |
+  APPLY_STENCIL |	         45 |	 6.030050000e-01 |	 1.340011111e-02 |
+             CG |	          1 |	 1.205785000e+00 |	 1.205785000e+00 |
+         AXPBY2 |	         40 |	 1.011988000e+00 |	 2.529970000e-02 |
+     GS_PRE_CON |	         21 |	 9.022420000e-01 |	 4.296390476e-02 |
+            PCG |	          1 |	 2.244794000e+00 |	 2.244794000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 10
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 671.551645 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 367.372542 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 6.278960000e-01 |	 1.308116667e-02 |
+    DOT_PRODUCT |	         69 |	 5.750280000e-01 |	 8.333739130e-03 |
+  APPLY_STENCIL |	         45 |	 5.943720000e-01 |	 1.320826667e-02 |
+             CG |	          1 |	 1.191271000e+00 |	 1.191271000e+00 |
+         AXPBY2 |	         40 |	 1.007620000e+00 |	 2.519050000e-02 |
+     GS_PRE_CON |	         21 |	 8.370930000e-01 |	 3.986157143e-02 |
+            PCG |	          1 |	 2.177626000e+00 |	 2.177626000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 11
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 677.497021 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 384.484882 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 6.184190000e-01 |	 1.288372917e-02 |
+    DOT_PRODUCT |	         69 |	 5.450490000e-01 |	 7.899260870e-03 |
+  APPLY_STENCIL |	         45 |	 5.898400000e-01 |	 1.310755556e-02 |
+             CG |	          1 |	 1.180817000e+00 |	 1.180817000e+00 |
+         AXPBY2 |	         40 |	 1.000834000e+00 |	 2.502085000e-02 |
+     GS_PRE_CON |	         21 |	 7.730190000e-01 |	 3.681042857e-02 |
+            PCG |	          1 |	 2.080706000e+00 |	 2.080706000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 12
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 678.694260 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 394.722365 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 6.238160000e-01 |	 1.299616667e-02 |
+    DOT_PRODUCT |	         69 |	 5.246080000e-01 |	 7.603014493e-03 |
+  APPLY_STENCIL |	         45 |	 5.845520000e-01 |	 1.299004444e-02 |
+             CG |	          1 |	 1.178734000e+00 |	 1.178734000e+00 |
+         AXPBY2 |	         40 |	 1.004561000e+00 |	 2.511402500e-02 |
+     GS_PRE_CON |	         21 |	 7.277750000e-01 |	 3.465595238e-02 |
+            PCG |	          1 |	 2.026741000e+00 |	 2.026741000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 13
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 678.263273 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 399.704019 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 6.247710000e-01 |	 1.301606250e-02 |
+    DOT_PRODUCT |	         69 |	 5.177920000e-01 |	 7.504231884e-03 |
+  APPLY_STENCIL |	         45 |	 5.813780000e-01 |	 1.291951111e-02 |
+             CG |	          1 |	 1.179483000e+00 |	 1.179483000e+00 |
+         AXPBY2 |	         40 |	 1.009680000e+00 |	 2.524200000e-02 |
+     GS_PRE_CON |	         21 |	 7.042550000e-01 |	 3.353595238e-02 |
+            PCG |	          1 |	 2.001481000e+00 |	 2.001481000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 14
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 675.895456 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 401.933703 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 6.296390000e-01 |	 1.311747917e-02 |
+    DOT_PRODUCT |	         69 |	 5.163270000e-01 |	 7.483000000e-03 |
+  APPLY_STENCIL |	         45 |	 5.804680000e-01 |	 1.289928889e-02 |
+             CG |	          1 |	 1.183615000e+00 |	 1.183615000e+00 |
+         AXPBY2 |	         40 |	 1.023733000e+00 |	 2.559332500e-02 |
+     GS_PRE_CON |	         21 |	 6.772760000e-01 |	 3.225123810e-02 |
+            PCG |	          1 |	 1.990378000e+00 |	 1.990378000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 15
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 675.225715 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 406.974940 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 6.201330000e-01 |	 1.291943750e-02 |
+    DOT_PRODUCT |	         69 |	 5.145500000e-01 |	 7.457246377e-03 |
+  APPLY_STENCIL |	         45 |	 5.797830000e-01 |	 1.288406667e-02 |
+             CG |	          1 |	 1.184789000e+00 |	 1.184789000e+00 |
+         AXPBY2 |	         40 |	 1.038922000e+00 |	 2.597305000e-02 |
+     GS_PRE_CON |	         21 |	 6.494140000e-01 |	 3.092447619e-02 |
+            PCG |	          1 |	 1.965723000e+00 |	 1.965723000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 16
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 676.339448 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 409.205487 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 6.270110000e-01 |	 1.306272917e-02 |
+    DOT_PRODUCT |	         69 |	 5.115450000e-01 |	 7.413695652e-03 |
+  APPLY_STENCIL |	         45 |	 5.802290000e-01 |	 1.289397778e-02 |
+             CG |	          1 |	 1.182838000e+00 |	 1.182838000e+00 |
+         AXPBY2 |	         40 |	 1.032975000e+00 |	 2.582437500e-02 |
+     GS_PRE_CON |	         21 |	 6.383220000e-01 |	 3.039628571e-02 |
+            PCG |	          1 |	 1.955008000e+00 |	 1.955008000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 17
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 668.818031 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 408.861668 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 6.258970000e-01 |	 1.303952083e-02 |
+    DOT_PRODUCT |	         69 |	 5.118520000e-01 |	 7.418144928e-03 |
+  APPLY_STENCIL |	         45 |	 5.839180000e-01 |	 1.297595556e-02 |
+             CG |	          1 |	 1.196140000e+00 |	 1.196140000e+00 |
+         AXPBY2 |	         40 |	 1.044977000e+00 |	 2.612442500e-02 |
+     GS_PRE_CON |	         21 |	 6.365210000e-01 |	 3.031052381e-02 |
+            PCG |	          1 |	 1.956652000e+00 |	 1.956652000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 18
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 671.864660 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 413.215243 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 6.227580000e-01 |	 1.297412500e-02 |
+    DOT_PRODUCT |	         69 |	 5.173960000e-01 |	 7.498492754e-03 |
+  APPLY_STENCIL |	         45 |	 5.785610000e-01 |	 1.285691111e-02 |
+             CG |	          1 |	 1.190716000e+00 |	 1.190716000e+00 |
+         AXPBY2 |	         40 |	 1.036021000e+00 |	 2.590052500e-02 |
+     GS_PRE_CON |	         21 |	 6.229450000e-01 |	 2.966404762e-02 |
+            PCG |	          1 |	 1.936037000e+00 |	 1.936037000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+Running with X=2000 Y=20000 for CASE2
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 1
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 171.660485 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 43.041444 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 2.370301000e+00 |	 4.938127083e-02 |
+    DOT_PRODUCT |	         69 |	 2.914461000e+00 |	 4.223856522e-02 |
+  APPLY_STENCIL |	         45 |	 2.404512000e+00 |	 5.343360000e-02 |
+             CG |	          1 |	 4.660362000e+00 |	 4.660362000e+00 |
+         AXPBY2 |	         40 |	 3.534803000e+00 |	 8.837007500e-02 |
+     GS_PRE_CON |	         21 |	 1.369659300e+01 |	 6.522187143e-01 |
+            PCG |	          1 |	 1.858673700e+01 |	 1.858673700e+01 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 2
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 324.230955 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 82.608615 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 1.278342000e+00 |	 2.663212500e-02 |
+    DOT_PRODUCT |	         69 |	 1.404799000e+00 |	 2.035940580e-02 |
+  APPLY_STENCIL |	         45 |	 1.330253000e+00 |	 2.956117778e-02 |
+             CG |	          1 |	 2.467377000e+00 |	 2.467377000e+00 |
+         AXPBY2 |	         40 |	 1.894955000e+00 |	 4.737387500e-02 |
+     GS_PRE_CON |	         21 |	 7.142247000e+00 |	 3.401070000e-01 |
+            PCG |	          1 |	 9.684220000e+00 |	 9.684220000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 3
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 438.531337 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 118.510600 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 9.643660000e-01 |	 2.009095833e-02 |
+    DOT_PRODUCT |	         69 |	 1.040706000e+00 |	 1.508269565e-02 |
+  APPLY_STENCIL |	         45 |	 9.778180000e-01 |	 2.172928889e-02 |
+             CG |	          1 |	 1.824271000e+00 |	 1.824271000e+00 |
+         AXPBY2 |	         40 |	 1.435999000e+00 |	 3.589997500e-02 |
+     GS_PRE_CON |	         21 |	 4.787535000e+00 |	 2.279778571e-01 |
+            PCG |	          1 |	 6.750451000e+00 |	 6.750451000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 4
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 516.924095 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 146.664151 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 8.216210000e-01 |	 1.711710417e-02 |
+    DOT_PRODUCT |	         69 |	 8.710800000e-01 |	 1.262434783e-02 |
+  APPLY_STENCIL |	         45 |	 8.110500000e-01 |	 1.802333333e-02 |
+             CG |	          1 |	 1.547616000e+00 |	 1.547616000e+00 |
+         AXPBY2 |	         40 |	 1.250109000e+00 |	 3.125272500e-02 |
+     GS_PRE_CON |	         21 |	 3.753820000e+00 |	 1.787533333e-01 |
+            PCG |	          1 |	 5.454639000e+00 |	 5.454639000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 5
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 567.837002 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 171.944023 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 7.475440000e-01 |	 1.557383333e-02 |
+    DOT_PRODUCT |	         69 |	 7.662820000e-01 |	 1.110553623e-02 |
+  APPLY_STENCIL |	         45 |	 7.300270000e-01 |	 1.622282222e-02 |
+             CG |	          1 |	 1.408855000e+00 |	 1.408855000e+00 |
+         AXPBY2 |	         40 |	 1.161119000e+00 |	 2.902797500e-02 |
+     GS_PRE_CON |	         21 |	 3.095096000e+00 |	 1.473855238e-01 |
+            PCG |	          1 |	 4.652677000e+00 |	 4.652677000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 6
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 603.504854 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 193.930132 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 7.073990000e-01 |	 1.473747917e-02 |
+    DOT_PRODUCT |	         69 |	 7.173720000e-01 |	 1.039669565e-02 |
+  APPLY_STENCIL |	         45 |	 6.874020000e-01 |	 1.527560000e-02 |
+             CG |	          1 |	 1.325590000e+00 |	 1.325590000e+00 |
+         AXPBY2 |	         40 |	 1.099534000e+00 |	 2.748835000e-02 |
+     GS_PRE_CON |	         21 |	 2.639027000e+00 |	 1.256679524e-01 |
+            PCG |	          1 |	 4.125197000e+00 |	 4.125197000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 7
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 626.196623 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 210.813355 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 6.761250000e-01 |	 1.408593750e-02 |
+    DOT_PRODUCT |	         69 |	 7.206300000e-01 |	 1.044391304e-02 |
+  APPLY_STENCIL |	         45 |	 6.529960000e-01 |	 1.451102222e-02 |
+             CG |	          1 |	 1.277554000e+00 |	 1.277554000e+00 |
+         AXPBY2 |	         40 |	 1.056904000e+00 |	 2.642260000e-02 |
+     GS_PRE_CON |	         21 |	 2.336805000e+00 |	 1.112764286e-01 |
+            PCG |	          1 |	 3.794826000e+00 |	 3.794826000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 8
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 641.995837 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 231.304122 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 6.517220000e-01 |	 1.357754167e-02 |
+    DOT_PRODUCT |	         69 |	 6.328950000e-01 |	 9.172391304e-03 |
+  APPLY_STENCIL |	         45 |	 6.346640000e-01 |	 1.410364444e-02 |
+             CG |	          1 |	 1.246114000e+00 |	 1.246114000e+00 |
+         AXPBY2 |	         40 |	 1.039239000e+00 |	 2.598097500e-02 |
+     GS_PRE_CON |	         21 |	 2.094419000e+00 |	 9.973423810e-02 |
+            PCG |	          1 |	 3.458650000e+00 |	 3.458650000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 9
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 653.524293 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 245.025673 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 6.353660000e-01 |	 1.323679167e-02 |
+    DOT_PRODUCT |	         69 |	 6.055740000e-01 |	 8.776434783e-03 |
+  APPLY_STENCIL |	         45 |	 6.170580000e-01 |	 1.371240000e-02 |
+             CG |	          1 |	 1.224132000e+00 |	 1.224132000e+00 |
+         AXPBY2 |	         40 |	 1.025570000e+00 |	 2.563925000e-02 |
+     GS_PRE_CON |	         21 |	 1.937637000e+00 |	 9.226842857e-02 |
+            PCG |	          1 |	 3.264964000e+00 |	 3.264964000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 10
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 665.768988 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 259.460329 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 6.258730000e-01 |	 1.303902083e-02 |
+    DOT_PRODUCT |	         69 |	 5.806970000e-01 |	 8.415898551e-03 |
+  APPLY_STENCIL |	         45 |	 6.048090000e-01 |	 1.344020000e-02 |
+             CG |	          1 |	 1.201618000e+00 |	 1.201618000e+00 |
+         AXPBY2 |	         40 |	 9.995800000e-01 |	 2.498950000e-02 |
+     GS_PRE_CON |	         21 |	 1.794444000e+00 |	 8.544971429e-02 |
+            PCG |	          1 |	 3.083323000e+00 |	 3.083323000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 11
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 673.863529 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 270.716312 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 6.235750000e-01 |	 1.299114583e-02 |
+    DOT_PRODUCT |	         69 |	 5.442430000e-01 |	 7.887579710e-03 |
+  APPLY_STENCIL |	         45 |	 5.985110000e-01 |	 1.330024444e-02 |
+             CG |	          1 |	 1.187184000e+00 |	 1.187184000e+00 |
+         AXPBY2 |	         40 |	 9.982200000e-01 |	 2.495550000e-02 |
+     GS_PRE_CON |	         21 |	 1.688021000e+00 |	 8.038195238e-02 |
+            PCG |	          1 |	 2.955123000e+00 |	 2.955123000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 12
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 678.339763 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 280.978987 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 6.169100000e-01 |	 1.285229167e-02 |
+    DOT_PRODUCT |	         69 |	 5.234760000e-01 |	 7.586608696e-03 |
+  APPLY_STENCIL |	         45 |	 5.926430000e-01 |	 1.316984444e-02 |
+             CG |	          1 |	 1.179350000e+00 |	 1.179350000e+00 |
+         AXPBY2 |	         40 |	 1.003056000e+00 |	 2.507640000e-02 |
+     GS_PRE_CON |	         21 |	 1.591265000e+00 |	 7.577452381e-02 |
+            PCG |	          1 |	 2.847188000e+00 |	 2.847188000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 13
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 678.996104 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 287.759330 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 6.197580000e-01 |	 1.291162500e-02 |
+    DOT_PRODUCT |	         69 |	 5.150640000e-01 |	 7.464695652e-03 |
+  APPLY_STENCIL |	         45 |	 5.838160000e-01 |	 1.297368889e-02 |
+             CG |	          1 |	 1.178210000e+00 |	 1.178210000e+00 |
+         AXPBY2 |	         40 |	 1.014411000e+00 |	 2.536027500e-02 |
+     GS_PRE_CON |	         21 |	 1.520709000e+00 |	 7.241471429e-02 |
+            PCG |	          1 |	 2.780101000e+00 |	 2.780101000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 14
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 674.495309 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 295.679203 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 6.222940000e-01 |	 1.296445833e-02 |
+    DOT_PRODUCT |	         69 |	 5.167420000e-01 |	 7.489014493e-03 |
+  APPLY_STENCIL |	         45 |	 5.823690000e-01 |	 1.294153333e-02 |
+             CG |	          1 |	 1.186072000e+00 |	 1.186072000e+00 |
+         AXPBY2 |	         40 |	 1.025516000e+00 |	 2.563790000e-02 |
+     GS_PRE_CON |	         21 |	 1.435693000e+00 |	 6.836633333e-02 |
+            PCG |	          1 |	 2.705635000e+00 |	 2.705635000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 15
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 666.087725 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 302.269134 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 6.325460000e-01 |	 1.317804167e-02 |
+    DOT_PRODUCT |	         69 |	 5.149760000e-01 |	 7.463420290e-03 |
+  APPLY_STENCIL |	         45 |	 5.854580000e-01 |	 1.301017778e-02 |
+             CG |	          1 |	 1.201043000e+00 |	 1.201043000e+00 |
+         AXPBY2 |	         40 |	 1.031830000e+00 |	 2.579575000e-02 |
+     GS_PRE_CON |	         21 |	 1.371583000e+00 |	 6.531347619e-02 |
+            PCG |	          1 |	 2.646648000e+00 |	 2.646648000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 16
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 673.883396 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 307.677634 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 6.292930000e-01 |	 1.311027083e-02 |
+    DOT_PRODUCT |	         69 |	 5.109920000e-01 |	 7.405681159e-03 |
+  APPLY_STENCIL |	         45 |	 5.805950000e-01 |	 1.290211111e-02 |
+             CG |	          1 |	 1.187149000e+00 |	 1.187149000e+00 |
+         AXPBY2 |	         40 |	 1.026781000e+00 |	 2.566952500e-02 |
+     GS_PRE_CON |	         21 |	 1.323074000e+00 |	 6.300352381e-02 |
+            PCG |	          1 |	 2.600124000e+00 |	 2.600124000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 17
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 671.494150 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 315.306971 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 6.261350000e-01 |	 1.304447917e-02 |
+    DOT_PRODUCT |	         69 |	 5.078890000e-01 |	 7.360710145e-03 |
+  APPLY_STENCIL |	         45 |	 5.797470000e-01 |	 1.288326667e-02 |
+             CG |	          1 |	 1.191373000e+00 |	 1.191373000e+00 |
+         AXPBY2 |	         40 |	 1.041205000e+00 |	 2.603012500e-02 |
+     GS_PRE_CON |	         21 |	 1.253407000e+00 |	 5.968604762e-02 |
+            PCG |	          1 |	 2.537210000e+00 |	 2.537210000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 18
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 668.090814 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 317.565669 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 6.291480000e-01 |	 1.310725000e-02 |
+    DOT_PRODUCT |	         69 |	 5.113620000e-01 |	 7.411043478e-03 |
+  APPLY_STENCIL |	         45 |	 5.792710000e-01 |	 1.287268889e-02 |
+             CG |	          1 |	 1.197442000e+00 |	 1.197442000e+00 |
+         AXPBY2 |	         40 |	 1.044658000e+00 |	 2.611645000e-02 |
+     GS_PRE_CON |	         21 |	 1.233541000e+00 |	 5.874004762e-02 |
+            PCG |	          1 |	 2.519164000e+00 |	 2.519164000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+Running with X=1000 Y=40000 for CASE3
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 1
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 168.416302 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 44.343042 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 2.392269000e+00 |	 4.983893750e-02 |
+    DOT_PRODUCT |	         69 |	 2.920040000e+00 |	 4.231942029e-02 |
+  APPLY_STENCIL |	         45 |	 2.516104000e+00 |	 5.591342222e-02 |
+             CG |	          1 |	 4.750134000e+00 |	 4.750134000e+00 |
+         AXPBY2 |	         40 |	 3.558461000e+00 |	 8.896152500e-02 |
+     GS_PRE_CON |	         21 |	 1.306553200e+01 |	 6.221681905e-01 |
+            PCG |	          1 |	 1.804116200e+01 |	 1.804116200e+01 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 2
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 318.859758 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 84.969952 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 1.285395000e+00 |	 2.677906250e-02 |
+    DOT_PRODUCT |	         69 |	 1.411904000e+00 |	 2.046237681e-02 |
+  APPLY_STENCIL |	         45 |	 1.395570000e+00 |	 3.101266667e-02 |
+             CG |	          1 |	 2.508940000e+00 |	 2.508940000e+00 |
+         AXPBY2 |	         40 |	 1.914761000e+00 |	 4.786902500e-02 |
+     GS_PRE_CON |	         21 |	 6.808275000e+00 |	 3.242035714e-01 |
+            PCG |	          1 |	 9.415093000e+00 |	 9.415093000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 3
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 431.099055 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 121.717433 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 9.782500000e-01 |	 2.038020833e-02 |
+    DOT_PRODUCT |	         69 |	 1.037765000e+00 |	 1.504007246e-02 |
+  APPLY_STENCIL |	         45 |	 9.967900000e-01 |	 2.215088889e-02 |
+             CG |	          1 |	 1.855722000e+00 |	 1.855722000e+00 |
+         AXPBY2 |	         40 |	 1.459197000e+00 |	 3.647992500e-02 |
+     GS_PRE_CON |	         21 |	 4.583472000e+00 |	 2.182605714e-01 |
+            PCG |	          1 |	 6.572600000e+00 |	 6.572600000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 4
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 508.910061 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 155.314684 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 8.332970000e-01 |	 1.736035417e-02 |
+    DOT_PRODUCT |	         69 |	 8.471470000e-01 |	 1.227749275e-02 |
+  APPLY_STENCIL |	         45 |	 8.170360000e-01 |	 1.815635556e-02 |
+             CG |	          1 |	 1.571987000e+00 |	 1.571987000e+00 |
+         AXPBY2 |	         40 |	 1.270425000e+00 |	 3.176062500e-02 |
+     GS_PRE_CON |	         21 |	 3.448223000e+00 |	 1.642010952e-01 |
+            PCG |	          1 |	 5.150833000e+00 |	 5.150833000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 5
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 564.654333 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 183.145194 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 7.574770000e-01 |	 1.578077083e-02 |
+    DOT_PRODUCT |	         69 |	 7.595380000e-01 |	 1.100779710e-02 |
+  APPLY_STENCIL |	         45 |	 7.308270000e-01 |	 1.624060000e-02 |
+             CG |	          1 |	 1.416796000e+00 |	 1.416796000e+00 |
+         AXPBY2 |	         40 |	 1.165400000e+00 |	 2.913500000e-02 |
+     GS_PRE_CON |	         21 |	 2.797498000e+00 |	 1.332141905e-01 |
+            PCG |	          1 |	 4.368119000e+00 |	 4.368119000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 6
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 602.380155 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 207.485722 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 7.159700000e-01 |	 1.491604167e-02 |
+    DOT_PRODUCT |	         69 |	 7.164300000e-01 |	 1.038304348e-02 |
+  APPLY_STENCIL |	         45 |	 6.808990000e-01 |	 1.513108889e-02 |
+             CG |	          1 |	 1.328065000e+00 |	 1.328065000e+00 |
+         AXPBY2 |	         40 |	 1.101498000e+00 |	 2.753745000e-02 |
+     GS_PRE_CON |	         21 |	 2.356341000e+00 |	 1.122067143e-01 |
+            PCG |	          1 |	 3.855687000e+00 |	 3.855687000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 7
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 617.763957 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 227.143410 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 6.947100000e-01 |	 1.447312500e-02 |
+    DOT_PRODUCT |	         69 |	 7.125180000e-01 |	 1.032634783e-02 |
+  APPLY_STENCIL |	         45 |	 6.498640000e-01 |	 1.444142222e-02 |
+             CG |	          1 |	 1.294993000e+00 |	 1.294993000e+00 |
+         AXPBY2 |	         40 |	 1.072445000e+00 |	 2.681112500e-02 |
+     GS_PRE_CON |	         21 |	 2.047953000e+00 |	 9.752157143e-02 |
+            PCG |	          1 |	 3.522004000e+00 |	 3.522004000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 8
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 641.718780 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 247.640298 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 6.619530000e-01 |	 1.379068750e-02 |
+    DOT_PRODUCT |	         69 |	 6.787100000e-01 |	 9.836376812e-03 |
+  APPLY_STENCIL |	         45 |	 6.262770000e-01 |	 1.391726667e-02 |
+             CG |	          1 |	 1.246652000e+00 |	 1.246652000e+00 |
+         AXPBY2 |	         40 |	 1.040798000e+00 |	 2.601995000e-02 |
+     GS_PRE_CON |	         21 |	 1.805628000e+00 |	 8.598228571e-02 |
+            PCG |	          1 |	 3.230492000e+00 |	 3.230492000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 9
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 654.020098 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 263.542285 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 6.494670000e-01 |	 1.353056250e-02 |
+    DOT_PRODUCT |	         69 |	 6.539820000e-01 |	 9.478000000e-03 |
+  APPLY_STENCIL |	         45 |	 6.087480000e-01 |	 1.352773333e-02 |
+             CG |	          1 |	 1.223204000e+00 |	 1.223204000e+00 |
+         AXPBY2 |	         40 |	 1.026560000e+00 |	 2.566400000e-02 |
+     GS_PRE_CON |	         21 |	 1.639047000e+00 |	 7.804985714e-02 |
+            PCG |	          1 |	 3.035566000e+00 |	 3.035566000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 10
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 664.412095 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 278.659716 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 6.328280000e-01 |	 1.318391667e-02 |
+    DOT_PRODUCT |	         69 |	 6.365160000e-01 |	 9.224869565e-03 |
+  APPLY_STENCIL |	         45 |	 5.974330000e-01 |	 1.327628889e-02 |
+             CG |	          1 |	 1.204072000e+00 |	 1.204072000e+00 |
+         AXPBY2 |	         40 |	 1.017123000e+00 |	 2.542807500e-02 |
+     GS_PRE_CON |	         21 |	 1.499544000e+00 |	 7.140685714e-02 |
+            PCG |	          1 |	 2.870885000e+00 |	 2.870885000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 11
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 673.111711 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 297.351564 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 6.300660000e-01 |	 1.312637500e-02 |
+    DOT_PRODUCT |	         69 |	 5.698300000e-01 |	 8.258405797e-03 |
+  APPLY_STENCIL |	         45 |	 5.886100000e-01 |	 1.308022222e-02 |
+             CG |	          1 |	 1.188510000e+00 |	 1.188510000e+00 |
+         AXPBY2 |	         40 |	 1.003539000e+00 |	 2.508847500e-02 |
+     GS_PRE_CON |	         21 |	 1.385086000e+00 |	 6.595647619e-02 |
+            PCG |	          1 |	 2.690418000e+00 |	 2.690418000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 12
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 675.424673 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 310.949745 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 6.244980000e-01 |	 1.301037500e-02 |
+    DOT_PRODUCT |	         69 |	 5.372460000e-01 |	 7.786173913e-03 |
+  APPLY_STENCIL |	         45 |	 5.817120000e-01 |	 1.292693333e-02 |
+             CG |	          1 |	 1.184440000e+00 |	 1.184440000e+00 |
+         AXPBY2 |	         40 |	 1.014488000e+00 |	 2.536220000e-02 |
+     GS_PRE_CON |	         21 |	 1.287610000e+00 |	 6.131476190e-02 |
+            PCG |	          1 |	 2.572763000e+00 |	 2.572763000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 13
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 678.659715 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 320.309034 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 6.288800000e-01 |	 1.310166667e-02 |
+    DOT_PRODUCT |	         69 |	 5.201200000e-01 |	 7.537971014e-03 |
+  APPLY_STENCIL |	         45 |	 5.846280000e-01 |	 1.299173333e-02 |
+             CG |	          1 |	 1.178794000e+00 |	 1.178794000e+00 |
+         AXPBY2 |	         40 |	 1.017694000e+00 |	 2.544235000e-02 |
+     GS_PRE_CON |	         21 |	 1.207668000e+00 |	 5.750800000e-02 |
+            PCG |	          1 |	 2.497588000e+00 |	 2.497588000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 14
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 671.521769 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 329.145912 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 6.304640000e-01 |	 1.313466667e-02 |
+    DOT_PRODUCT |	         69 |	 5.182870000e-01 |	 7.511405797e-03 |
+  APPLY_STENCIL |	         45 |	 5.775690000e-01 |	 1.283486667e-02 |
+             CG |	          1 |	 1.191324000e+00 |	 1.191324000e+00 |
+         AXPBY2 |	         40 |	 1.031203000e+00 |	 2.578007500e-02 |
+     GS_PRE_CON |	         21 |	 1.141384000e+00 |	 5.435161905e-02 |
+            PCG |	          1 |	 2.430533000e+00 |	 2.430533000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 15
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 669.405091 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 336.660946 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 6.280290000e-01 |	 1.308393750e-02 |
+    DOT_PRODUCT |	         69 |	 5.182170000e-01 |	 7.510391304e-03 |
+  APPLY_STENCIL |	         45 |	 5.789610000e-01 |	 1.286580000e-02 |
+             CG |	          1 |	 1.195091000e+00 |	 1.195091000e+00 |
+         AXPBY2 |	         40 |	 1.035132000e+00 |	 2.587830000e-02 |
+     GS_PRE_CON |	         21 |	 1.084341000e+00 |	 5.163528571e-02 |
+            PCG |	          1 |	 2.376278000e+00 |	 2.376278000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 16
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 670.918613 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 343.378440 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 6.288160000e-01 |	 1.310033333e-02 |
+    DOT_PRODUCT |	         69 |	 5.152750000e-01 |	 7.467753623e-03 |
+  APPLY_STENCIL |	         45 |	 5.750610000e-01 |	 1.277913333e-02 |
+             CG |	          1 |	 1.192395000e+00 |	 1.192395000e+00 |
+         AXPBY2 |	         40 |	 1.045047000e+00 |	 2.612617500e-02 |
+     GS_PRE_CON |	         21 |	 1.028449000e+00 |	 4.897376190e-02 |
+            PCG |	          1 |	 2.329791000e+00 |	 2.329791000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 17
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 664.401059 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 349.281375 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 6.348520000e-01 |	 1.322608333e-02 |
+    DOT_PRODUCT |	         69 |	 5.105430000e-01 |	 7.399173913e-03 |
+  APPLY_STENCIL |	         45 |	 5.743400000e-01 |	 1.276311111e-02 |
+             CG |	          1 |	 1.204092000e+00 |	 1.204092000e+00 |
+         AXPBY2 |	         40 |	 1.052580000e+00 |	 2.631450000e-02 |
+     GS_PRE_CON |	         21 |	 9.901060000e-01 |	 4.714790476e-02 |
+            PCG |	          1 |	 2.290417000e+00 |	 2.290417000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+--------------------------------------------------------------------------------
+CPU name:	Intel(R) Xeon(R) Platinum 8360Y CPU @ 2.40GHz
+CPU type:	Intel Icelake SP processor
+CPU clock:	2.39 GHz
+--------------------------------------------------------------------------------
+Total number of threads active = 18
+[36mTESTS started
+There are 4 tests to pass[0m
+CG iterations = 20
+Performance CG = 669.391088 [MLUP/s]
+[32mTest[ 1/ 4] Solver::CG - residual check success
+[0m[32mTest[ 2/ 4] Solver::CG - error check success
+[0mPCG iterations = 20
+Performance PCG = 354.992144 [MLUP/s]
+[32mTest[ 3/ 4] Solver::PCG - residual check success
+[0m[32mTest[ 4/ 4] Solver::PCG - error check success
+[0m[36mCongrats !!!, You did it !
+All tests passed[0m
+
+----------------------------------------------------------------------------------
+ 				  Timing Summary
+
+----------------------------------------------------------------------------------
+       FUNCTION |	     COUNTS |	  TOTAL TIME (s) |	  TIME/COUNT (s) |
+----------------------------------------------------------------------------------
+          AXPBY |	         48 |	 6.309130000e-01 |	 1.314402083e-02 |
+    DOT_PRODUCT |	         69 |	 5.202940000e-01 |	 7.540492754e-03 |
+  APPLY_STENCIL |	         45 |	 5.728850000e-01 |	 1.273077778e-02 |
+             CG |	          1 |	 1.195116000e+00 |	 1.195116000e+00 |
+         AXPBY2 |	         40 |	 1.042424000e+00 |	 2.606060000e-02 |
+     GS_PRE_CON |	         21 |	 9.480900000e-01 |	 4.514714286e-02 |
+            PCG |	          1 |	 2.253571000e+00 |	 2.253571000e+00 |
+----------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+MMarker API result file does not exist. This may happen if the application was not compiled with LIKWID_PERFMON macro or the application has not called LIKWID_MARKER_CLOSE.
+=== JOB_STATISTICS ===
+=== current date     : Fri Sep 19 20:45:14 CEST 2025
+= Job-ID             : 2557417 on fritz
+= Job-Name           : PTFSA
+= Job-Command        : /home/hpc/ptfs/ptfs288h/Project/PTfS-CAM-Project/codeBalance.sh
+= Initial workdir    : /home/hpc/ptfs/ptfs288h/Project/PTfS-CAM-Project
+= Queue/Partition    : singlenode
+= Slurm account      : ptfs with QOS=ptfs
+= Features           : hwperf
+= Requested resources:  for 01:00:00
+= Elapsed runtime    : 00:09:29
+= Total RAM usage    : 2.4 GiB 
+= Node list          : f0779
+= Subm/Elig/Start/End: 2025-09-19T20:35:44 / 2025-09-19T20:35:44 / 2025-09-19T20:35:45 / 2025-09-19T20:45:14
+======================
+=== Quota infos ======
+    Path                 Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/woody             4.0K  1000.0G  1500.0G        N/A      10    5,000K   7,500K        N/A    
+    /home/hpc               6.5G   104.9G   209.7G        N/A  16,311      500K   1,000K        N/A    
+    /lustre                 4.0K     0.0K     0.0K        N/A       1       80K     250K        N/A    
+======================
+=== Network traffic stats (does not include Infiniband) ======
+= HPC internal traffic (e.g. to fileservers): 0 GB in / 0 GB out
+= External traffic: 0 GB in / 0 GB out
+======================

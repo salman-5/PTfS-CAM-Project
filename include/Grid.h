@@ -122,7 +122,7 @@ bool writeGnuplotFile(const std::string& name, Grid &src, double lx, double ly, 
 
 void axpby(Grid *res, double a, Grid *x, double b, Grid *y, bool halo=false);
 double axpby_dotProduct(Grid *lhs1, double a1, Grid *x1, double b1, Grid *y1,
-            Grid *lhs2, double a2, Grid *x2, double b2, Grid *y2, Grid *x, Grid *y);
+            Grid *lhs2, double a2, Grid *x2, Grid *y2);
 void copy(Grid *res, double a, Grid *x, bool halo=false);
 double dotProduct(Grid *x,Grid *y, bool halo=false);
 bool isSymmetric(Grid *u, double tol=1e-10, bool halo=false);
