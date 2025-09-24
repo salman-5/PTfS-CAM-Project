@@ -270,9 +270,9 @@ void axpby(Grid *lhs, double a, Grid *x, double b, Grid *y, bool halo)
 
     int shift = halo?0:HALO;
 
-#ifdef LIKWID_PERFMON
-    LIKWID_MARKER_START("AXPBY");
-#endif
+// #ifdef LIKWID_PERFMON
+//     LIKWID_MARKER_START("AXPBY");
+// #endif
     #pragma omp parallel for schedule(static)
     for(int yIndex=shift; yIndex<lhs->numGrids_y(true)-shift; ++yIndex)
     {
@@ -282,9 +282,9 @@ void axpby(Grid *lhs, double a, Grid *x, double b, Grid *y, bool halo)
             (*lhs)(yIndex,xIndex) = (a*(*x)(yIndex,xIndex)) + (b*(*y)(yIndex,xIndex));
         }
     }
-#ifdef LIKWID_PERFMON
-    LIKWID_MARKER_STOP("AXPBY");
-#endif
+// #ifdef LIKWID_PERFMON
+//     LIKWID_MARKER_STOP("AXPBY");
+// #endif
 
     STOP_TIMER(AXPBY);
 }
@@ -300,9 +300,9 @@ double  axpby_dotProduct(Grid* lhs1, double a1, Grid* x1, double b1, Grid* y1,
     assert((lhs2->numGrids_y(true)==x2->numGrids_y(true)) && (lhs2->numGrids_x(true)==x2->numGrids_x(true)));
     assert((y2->numGrids_y(true)==x2->numGrids_y(true)) && (y2->numGrids_x(true)==x2->numGrids_x(true)));
 #endif
-#ifdef LIKWID_PERFMON
-    LIKWID_MARKER_START("AXPBY2");
-#endif
+// #ifdef LIKWID_PERFMON
+//     LIKWID_MARKER_START("AXPBY2");
+// #endif
     int shift = 0; 
     double dot_res = 0;
     #pragma omp parallel for schedule(static) reduction(+:dot_res)
@@ -315,9 +315,9 @@ double  axpby_dotProduct(Grid* lhs1, double a1, Grid* x1, double b1, Grid* y1,
             dot_res += (*lhs2)(yIndex,xIndex)*(*lhs2)(yIndex,xIndex);
         }
     }
-#ifdef LIKWID_PERFMON
-    LIKWID_MARKER_STOP("AXPBY2");
-#endif
+// #ifdef LIKWID_PERFMON
+//     LIKWID_MARKER_STOP("AXPBY2");
+// #endif
 
     STOP_TIMER(AXPBY2);
     return dot_res;
@@ -335,9 +335,9 @@ void copy(Grid *lhs, double a, Grid *rhs, bool halo)
 
     int shift = halo?0:HALO;
 
-#ifdef LIKWID_PERFMON
-    LIKWID_MARKER_START("COPY");
-#endif
+// #ifdef LIKWID_PERFMON
+//     LIKWID_MARKER_START("COPY");
+// #endif
     #pragma omp parallel for collapse(2)
     for(int yIndex=shift; yIndex<lhs->numGrids_y(true)-shift; ++yIndex)
     {
@@ -347,9 +347,9 @@ void copy(Grid *lhs, double a, Grid *rhs, bool halo)
         }
     }
 
-#ifdef LIKWID_PERFMON
-    LIKWID_MARKER_STOP("COPY");
-#endif
+// #ifdef LIKWID_PERFMON
+//     LIKWID_MARKER_STOP("COPY");
+// #endif
 
 
     STOP_TIMER(COPY);
@@ -367,9 +367,9 @@ double dotProduct(Grid *x, Grid *y, bool halo)
 
     int shift = halo?0:HALO;
 
-#ifdef LIKWID_PERFMON
-    LIKWID_MARKER_START("DOT_PRODUCT");
-#endif
+// #ifdef LIKWID_PERFMON
+//     LIKWID_MARKER_START("DOT_PRODUCT");
+// #endif
 
     double dot_res = 0;
     #pragma omp parallel for schedule(static) reduction(+:dot_res)
@@ -381,9 +381,9 @@ double dotProduct(Grid *x, Grid *y, bool halo)
         }
     }
 
-#ifdef LIKWID_PERFMON
-    LIKWID_MARKER_STOP("DOT_PRODUCT");
-#endif
+// #ifdef LIKWID_PERFMON
+//     LIKWID_MARKER_STOP("DOT_PRODUCT");
+// #endif
 
 
     STOP_TIMER(DOT_PRODUCT);

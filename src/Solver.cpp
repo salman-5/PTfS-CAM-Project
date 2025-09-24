@@ -35,7 +35,7 @@ int SolverClass::CG(int niter, double tol)
         //Update x
         //axpby(x, 1.0, x, lambda, p);
         //Update r
-        //axpby(r, 1.0, r, -lambda, v);
+        //axpby(r, 1.0, r, -lambda, v); 
         //alpha_1 = dotProduct(r,r);
         alpha_1 = axpby_dotProduct(x, 1.0, x, lambda, p,
                     r, 1.0, r, v);

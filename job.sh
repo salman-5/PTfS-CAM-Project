@@ -11,7 +11,7 @@ module load intel likwid
 make clean
 make
 
-# ./leaderboard.sh "numactl --cpunodebind=0,1 --membind=0,1" "likwid-pin -c S0:0-35@S1:36-71"
+./leaderboard.sh "numactl --cpunodebind=0,1 --membind=0,1" "likwid-pin -c S0:0-35@S1:36-71"
 # ./leaderboard.sh "OMP_PROC_BIND=spread OMP_PLACES={0:72}" ""
 make clean
 

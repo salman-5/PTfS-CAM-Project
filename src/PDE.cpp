@@ -170,7 +170,7 @@ void PDE::GSPreCon(Grid *rhs, Grid *x)
         #pragma omp parallel private(nthreads, tid, istart, iend, jj)
         {
             #ifdef LIKWID_PERFMON
-                LIKWID_MARKER_START("GS_PRE_CON_FORWARD");
+                LIKWID_MARKER_START("GS_PRE_CON");
             #endif
             nthreads = omp_get_num_threads();
             tid = omp_get_thread_num();
@@ -189,21 +189,9 @@ void PDE::GSPreCon(Grid *rhs, Grid *x)
                 }
                 #pragma omp barrier
             }
-            #ifdef LIKWID_PERFMON
-                LIKWID_MARKER_STOP("GS_PRE_CON_FORWARD");
-            #endif
-        }
+        
 
         // backward substitution
-        #pragma omp parallel private(nthreads, tid, istart, iend, jj)
-        {
-            #ifdef LIKWID_PERFMON
-                LIKWID_MARKER_START("GS_PRE_CON_BACKWARD");
-            #endif
-            nthreads = omp_get_num_threads();
-            tid = omp_get_thread_num();
-            istart = (xSize - 2) / nthreads * tid + 1;
-            iend = (tid==nthreads-1 ? xSize-2 : istart + (xSize - 2) / nthreads - 1);
 
             for (int j = ySize - 1 + nthreads -1; j > 0; --j)
             {
@@ -217,7 +205,7 @@ void PDE::GSPreCon(Grid *rhs, Grid *x)
                 #pragma omp barrier
             }
             #ifdef LIKWID_PERFMON
-                LIKWID_MARKER_STOP("GS_PRE_CON_BACKWARD");
+                LIKWID_MARKER_STOP("GS_PRE_CON");
             #endif
         }
     } else {
@@ -227,7 +215,7 @@ void PDE::GSPreCon(Grid *rhs, Grid *x)
         {
             // forward substitution
             #ifdef LIKWID_PERFMON
-                LIKWID_MARKER_START("GS_PRE_CON_FORWARD");
+                LIKWID_MARKER_START("GS_PRE_CON");
             #endif
             nthreads = omp_get_num_threads();
             tid = omp_get_thread_num();
@@ -246,22 +234,7 @@ void PDE::GSPreCon(Grid *rhs, Grid *x)
                 }
                 #pragma omp barrier
             }
-            #ifdef LIKWID_PERFMON
-                LIKWID_MARKER_STOP("GS_PRE_CON_FORWARD");
-            #endif
-        }
-
-        // backward substitution
-        #pragma omp parallel private(nthreads, tid, jstart, jend, ii)
-        {
-            #ifdef LIKWID_PERFMON
-                LIKWID_MARKER_START("GS_PRE_CON_BACKWARD");
-            #endif
-            nthreads = omp_get_num_threads();
-            tid = omp_get_thread_num();
-            jstart = (ySize - 2) / nthreads * tid + 1;
-            jend = (tid==nthreads-1 ? ySize-2 : jstart + (ySize - 2) / nthreads - 1);
-
+            // backward substitution
             for (int i = xSize - 1 + nthreads -1; i > 0; --i)
             {
                 ii = i - tid;
@@ -274,7 +247,7 @@ void PDE::GSPreCon(Grid *rhs, Grid *x)
                 #pragma omp barrier
             }
             #ifdef LIKWID_PERFMON
-                LIKWID_MARKER_STOP("GS_PRE_CON_BACKWARD");
+                LIKWID_MARKER_STOP("GS_PRE_CON");
             #endif
         }
     }
